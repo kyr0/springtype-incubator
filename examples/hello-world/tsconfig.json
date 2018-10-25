@@ -8,7 +8,7 @@
         "strict": true,
         "declaration": true,
         "rootDir": ".",
-        "jsx": "preserve",
+        "jsx": "react",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "sourceMap": true,

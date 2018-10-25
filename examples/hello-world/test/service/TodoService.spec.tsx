@@ -1,17 +1,11 @@
-import {TestSuite} from "../../../../src/package/test/src/decorator/TestSuite";
-import {Test} from "../../../../src/package/test/src/decorator/Test";
-import {Todo, TodoService} from "../../src/service/TodoService";
-import {ConsoleLogger} from "../../../../src/package/log";
+import {TestSuite} from "../../../../src/package/test";
+import {Test} from "../../../../src/package/test";
+import {TodoService} from "../../src/service/TodoService";
 import {Component} from "../../../../src/package/di";
+import {ITodoItem} from "../../src/state/ITodoState";
 
-// TODO: mocha/chai
 @TestSuite
-@Component
 export class TodoServiceTest extends TodoService {
-
-    constructor(protected log: ConsoleLogger) {
-        super();
-    }
 
     @Test({
         returns: [{
@@ -22,10 +16,7 @@ export class TodoServiceTest extends TodoService {
             text: "Bar"
         }]
     })
-    getTodos(): Array<Todo> {
-
-        this.log.log('Test logging...');
-
+    getTodos(): Array<ITodoItem> {
         return super.getTodos();
     }
 
@@ -43,15 +34,8 @@ export class TodoServiceTest extends TodoService {
             text: "Bar"
         }
     })
-    getById(id: number): Todo {
+    getById(id: number): ITodoItem {
         return super.getById(id);
-    }
-
-    @Test({
-        returns: "Hello, world!"
-    })
-    helloWorld(): string {
-        return TodoService.helloWorld();
     }
 }
 
@@ -75,7 +59,6 @@ class whatever2Test extends whatever2 {
 }
 
 @TestSuite
-@Component
 class whatever {
 
     constructor(private whatEver: whatever2Test) {}

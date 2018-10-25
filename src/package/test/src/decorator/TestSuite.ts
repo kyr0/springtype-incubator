@@ -1,4 +1,8 @@
 import {ITestRegistration, TEST_CONFIGS} from "./Test";
+import {Component} from "../../../di";
+
+// important necessary import
+import "../TestBed";
 
 export const RETURNS_ASSERT_VALUE = Symbol('ASSERT_VALUE');
 
@@ -9,6 +13,12 @@ export interface ITestClass<TC> extends Function {
 export function TestSuite(target: ITestClass<any>): any {
 
     const testsToRun: Array<ITestRegistration> = Reflect.get(target, TEST_CONFIGS);
+
+    console.log('target', target);
+
+    const MockTarget = Component(target);
+
+    console.log('MockTarget', MockTarget);
 
     const testInstance = new target();
 

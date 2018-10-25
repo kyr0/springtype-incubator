@@ -1,7 +1,9 @@
 import {ApplicationContext, Component} from "../../../di";
 import {ApplicationEnvironment} from "../../../di/src/ApplicationContext";
 import {WebComponentReflector} from "./WebComponentReflector";
-import {WebApp} from "./WebApp";
+
+// only used in case of Nodejs
+import "../ui/FakeDOM";
 
 const CHILD_ELEMENT = Symbol('CHILD_ELEMENT');
 const PROPS_OBJECT = Symbol('PROPS_OBJECT');
@@ -32,7 +34,7 @@ export class WebComponentLifecycle  {
     init?(): void {}
     mount?(): void {};
     remount?(): void {};
-    render?(): JSX.Element {
+    render?(): any {
         return ('');
     }
     unmount?(): void {};
