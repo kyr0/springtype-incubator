@@ -1,1 +1,6 @@
 @import "../node_modules/materialize-css/sass/materialize";
+$primary-color: color("grey", "darken-4");
+
+.ham>path {
+  stroke: white;
+}
