@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Sigma-bau</title>
+
+    <!-- main application stylesheet entry-point -->
+    <link rel="stylesheet" href="./SigmaBauApp.scss"/>
+
+    <script type="text/javascript" src="./../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
+    <!-- TODO: Auto-detect and polyfill -->
+    <!-- if your tsc target is "es5" -->
+    <script src="./../node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+
+
+    <!-- main application logic entry-point -->
+    <script src="./SigmaBauApp.tsx"></script>
+
+
+
+</head>
+<body>
+
+<router-outlet/>
+<a class="waves-effect waves-light btn" >Add</a>
+
+</body>
+</html>
