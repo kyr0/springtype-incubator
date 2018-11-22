@@ -1,0 +1,9 @@
+
+@import "./../../SigmaBauApp";
+#mobile-menu{
+  background-color: $primary-color-light;
+display: none;
+}
+#mobile-menu.open{
+  display: block !important;
+}

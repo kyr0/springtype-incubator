@@ -24,7 +24,7 @@ export default (view: Footer) =>
         <div className="footer-copyright">
             <div className="container">
                 © {new Date().getFullYear()} Copyright {view.props.name}
-                <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a className="grey-text text-lighten-4 right" href="#">More Links</a>
             </div>
         </div>
     </div>

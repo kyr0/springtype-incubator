@@ -27,4 +27,8 @@ export class Navigation extends HTMLElement implements WebComponentLifecycle {
         this.props.menu = [];
     }
 
+    init = () => {
+
+    }
+
 }

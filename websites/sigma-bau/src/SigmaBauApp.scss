@@ -1,5 +1,55 @@
-@import "../node_modules/materialize-css/sass/materialize";
-$primary-color: color("grey", "darken-4");
+@charset "UTF-8";
+
+// Color
+@import "../node_modules/materialize-css/sass/components/color-variables";
+
+
+$primary-color: color("grey", "darken-3") !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+
+$secondary-color: color("amber", "lighten-1") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+$link-color: color("light-blue", "darken-1") !default;
+
+@import "../node_modules/materialize-css/sass/components/color-classes";
+
+// Variables;
+@import "../node_modules/materialize-css/sass/components/variables";
+
+// Reset
+@import "../node_modules/materialize-css/sass/components/normalize";
+
+// components
+@import "../node_modules/materialize-css/sass/components/global";
+@import "../node_modules/materialize-css/sass/components/badges";
+@import "../node_modules/materialize-css/sass/components/icons-material-design";
+@import "../node_modules/materialize-css/sass/components/grid";
+@import "../node_modules/materialize-css/sass/components/navbar";
+@import "../node_modules/materialize-css/sass/components/typography";
+@import "../node_modules/materialize-css/sass/components/transitions";
+@import "../node_modules/materialize-css/sass/components/cards";
+@import "../node_modules/materialize-css/sass/components/toast";
+@import "../node_modules/materialize-css/sass/components/tabs";
+@import "../node_modules/materialize-css/sass/components/tooltip";
+@import "../node_modules/materialize-css/sass/components/buttons";
+@import "../node_modules/materialize-css/sass/components/dropdown";
+@import "../node_modules/materialize-css/sass/components/waves";
+@import "../node_modules/materialize-css/sass/components/modal";
+@import "../node_modules/materialize-css/sass/components/collapsible";
+@import "../node_modules/materialize-css/sass/components/chips";
+@import "../node_modules/materialize-css/sass/components/materialbox";
+@import "../node_modules/materialize-css/sass/components/forms/forms";
+@import "../node_modules/materialize-css/sass/components/table_of_contents";
+@import "../node_modules/materialize-css/sass/components/sidenav";
+@import "../node_modules/materialize-css/sass/components/preloader";
+@import "../node_modules/materialize-css/sass/components/slider";
+@import "../node_modules/materialize-css/sass/components/carousel";
+@import "../node_modules/materialize-css/sass/components/tapTarget";
+@import "../node_modules/materialize-css/sass/components/pulse";
+@import "../node_modules/materialize-css/sass/components/datepicker";
+@import "../node_modules/materialize-css/sass/components/timepicker";
 
 .ham>path {
   stroke: white;
