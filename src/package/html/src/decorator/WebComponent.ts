@@ -25,45 +25,31 @@ export interface WebComponentConfig {
     template?: (view: any) => IReactCreateElement;
 }
 
-export class WebComponentLifecycle {
-    constructor() {
-    };
+export interface WebComponentLifecycle{
 
-    props?: any = {};
+    props?: any;
 
-    init?(): void {
-    }
+    init(): void;
 
-    mount?(): void {
-    };
+    mount?(): void;
 
-    remount?(): void {
-    };
+    remount?(): void;
 
-    render?(): JSX.Element {
-        return ('');
-    }
+    render?(): JSX.Element;
 
-    createNativeElement?(reactCreateElement: IReactCreateElement): any {
-    }
+    createNativeElement?(reactCreateElement: IReactCreateElement): any;
 
-    unmount?(): void {
-    };
+    unmount?(): void;
 
-    onPropChanged?(name: string, newValue: any, oldValue?: any): void {
-    };
+    onPropChanged?(name: string, newValue: any, oldValue?: any): void;
 
-    onPropsChanged?(props: any, name: string | number | symbol, value: any): void {
-    };
+    onPropsChanged?(props: any, name: string | number | symbol, value: any): void;
 
-    reflow?(): void {
-    };
+    reflow?(): void;
 
-    mountChildren?(): void {
-    };
+    mountChildren?(): void;
 
-    remountChildren?(): void {
-    };
+    remountChildren?(): void;
 }
 
 export interface AttributeChangeEvent {
@@ -113,6 +99,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
         // @Component by default
         const injectableWebComponent = Component(webComponent);
 
+
         // custom web component extends user implemented web component class
         // which extends HTMLElement
         let CustomWebComponent = class extends injectableWebComponent {
@@ -120,22 +107,15 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
             protected mounted: boolean = false;
 
             constructor(...args: Array<any>) {
-
                 super();
-
                 if (config.renderStrategy === RenderStrategy.onPropsChanged) {
-
                     this.props = new Proxy(this.props || {}, {
                         set: (props: any, name: string | number | symbol, value: any): boolean => {
-
-                            console.log('props change');
-
                             if (props[name] !== value) {
-
                                 props[name] = value;
 
                                 const cancelled = !this.dispatchEvent(new CustomEvent(LifecycleEvent.BEFORE_PROPS_CHANGE, {
-                                    detail: <PropsChangeEvent> {
+                                    detail: <PropsChangeEvent>{
                                         props,
                                         name,
                                         value
@@ -149,7 +129,6 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                             return true;
                         }
                     });
-
                     Object.defineProperty(this, 'props', {
                         writable: false
                     });
@@ -266,7 +245,6 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                 } else {
 
                     if (typeof config.template == 'function') {
-
                         // render template by default
                         return config.template(this);
                     }
@@ -278,7 +256,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                 if (super.createNativeElement) {
                     return super.createNativeElement(reactCreateElement);
                 }
-                return (<any> window).React.render(reactCreateElement);
+                return (<any>window).React.render(reactCreateElement);
             }
 
             protected flow = (initial: boolean = false) => {
@@ -300,7 +278,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                         }
                     }
                 }
-            }
+            };
 
             protected reflow() {
 
@@ -337,7 +315,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                 console.log('setting wc attr', name, newValue);
 
                 const cancelled = !this.dispatchEvent(new CustomEvent(LifecycleEvent.BEFORE_PROP_CHANGE, {
-                    detail: <AttributeChangeEvent> {
+                    detail: <AttributeChangeEvent>{
                         name: name,
                         oldValue,
                         newValue
@@ -377,18 +355,20 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
         };
 
         try {
+            //TODO: Arron help meFix me :D
+            const regCustomWebComponent = window.customElements.get(config.tag);
+            if (!regCustomWebComponent) {
+                // register custom element
+                window.customElements.define(config.tag, CustomWebComponent);
 
-            // register custom element
-            window.customElements.define(config.tag, CustomWebComponent);
-
-            WebComponentReflector.setTagName(<any>CustomWebComponent, config.tag);
-
+                WebComponentReflector.setTagName(<any>CustomWebComponent, config.tag);
+            }
         } catch (e) {
 
             if (ApplicationContext.getInstance().getEnvironment() === ApplicationEnvironment.DEV) {
 
                 // hot reload based error for web component registration (window.customElements.define(...))
-                if (e.message.indexOf('this name has already been used with this registry') > -1) {
+                if (e.message.indexOf(`this name  ${config.tag} has already been used with this registry`) > -1) {
                     window.location.href = '/';
                 }
             }

@@ -117,6 +117,7 @@ const svgTurn = (view: BurgerButton) => (
 );
 
 const selectBurger = (view: BurgerButton) => {
+    view.props.width = view.props.width || 50;
     switch (view.props.type) {
         case BurgerType.ARROW_LEFT:
             return svgArrowLeft(view);
@@ -133,9 +134,7 @@ const selectBurger = (view: BurgerButton) => {
         case BurgerType.TURN:
             return svgTurn(view);
         case BurgerType.SWORD:
-        default:
             return svgSword(view);
-
     }
 
 };

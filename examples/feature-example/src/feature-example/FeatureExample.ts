@@ -11,18 +11,21 @@ interface BurgerButtonProps {
     template
 })
 export class FeatureExample extends HTMLElement implements WebComponentLifecycle {
+    props!: BurgerButtonProps;
 
     constructor(
-        public props: BurgerButtonProps,
         public btn: HTMLButtonElement
     ) {
         super();
-
-        this.props.fill = 'yellow';
     }
 
-    // event listeners
+    init(): void   {
+        this.props.fill =  this.props.fill || 'yellow';
+        this.props.menuItems =  this.props.menuItems || [];
+    };
 
+
+    // event listeners
     onButtonClick = (evt: Event) => {
 
         console.log('Burger button was clicked', evt, this.props.menuItems, evt.currentTarget);
