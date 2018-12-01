@@ -1,9 +1,21 @@
-
 @import "./../../SigmaBauApp";
-#mobile-menu{
+
+#mobile-menu {
   background-color: $primary-color-light;
-display: none;
+  display: none;
+  font-size: large;
+  margin: 0;
+  padding: 15px;
 }
-#mobile-menu.open{
+#mobile-menu>li{
+  margin: 5px;
+}
+#mobile-menu>li:hover, .brand-logo:hover{
+  cursor: pointer;
+}
+#mobile-menu.open {
+  display: block !important;
+}
+.brand-logo{
   display: block !important;
 }

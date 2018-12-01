@@ -5,20 +5,23 @@ interface HomeProps {
 }
 
 @WebComponent({
-    tag: 'sb-home'
+    tag: 'sb-service'
 })
-export class Home extends HTMLElement implements WebComponentLifecycle {
+export class Service extends HTMLElement implements WebComponentLifecycle {
 
     constructor(
         public props: HomeProps
     ) {
         super();
     }
+    init = () => {
+    };
 
     render() {
         return (
-            <div>
-                home
-            </div>)
+            <div >
+               service
+            </div>
+        )
     }
 }

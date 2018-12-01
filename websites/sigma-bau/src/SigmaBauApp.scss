@@ -1,4 +1,9 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
 
 // Color
 @import "../node_modules/materialize-css/sass/components/color-variables";
@@ -11,7 +16,7 @@ $primary-color-dark: darken($primary-color, 15%) !default;
 $secondary-color: color("amber", "lighten-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
-$link-color: color("light-blue", "darken-1") !default;
+$link-color: color("grey", "lighten-1") !default;
 
 @import "../node_modules/materialize-css/sass/components/color-classes";
 
@@ -53,4 +58,7 @@ $link-color: color("light-blue", "darken-1") !default;
 
 .ham>path {
   stroke: white;
+}
+.container, .row .col, div{
+  //border: solid black 1px;
 }

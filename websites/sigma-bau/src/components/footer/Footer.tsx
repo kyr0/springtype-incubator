@@ -3,11 +3,11 @@ import {Router} from "../../../../../src/package/html/src/router/Router";
 import template from "./Footer.tpl";
 
 export interface FooterProps {
- name: string
+    name: string
 }
 
 @WebComponent({
-    tag: 'm-footer',
+    tag: 'sb-footer',
     template
 })
 export class Footer extends HTMLElement implements WebComponentLifecycle {
@@ -18,7 +18,10 @@ export class Footer extends HTMLElement implements WebComponentLifecycle {
         protected router: Router,
     ) {
         super();
-        this.props.name = ''
     }
+
+    init = () => {
+    };
+
 
 }

@@ -2,17 +2,17 @@ import {WebComponent, WebComponentLifecycle} from "../../../../../src/package/ht
 import {Router} from "../../../../../src/package/html/src/router/Router";
 import template from "./Navigation.tpl";
 
-interface Menu {
+export interface Menu {
     displayName: string;
     routeFunction: Function;
 }
 
 export interface NavigationProps {
-    menu: Array<Menu>;
+    menus: Array<Menu>;
 }
 
 @WebComponent({
-    tag: 'm-navigation',
+    tag: 'sb-navigation',
     template
 })
 export class Navigation extends HTMLElement implements WebComponentLifecycle {
@@ -21,10 +21,10 @@ export class Navigation extends HTMLElement implements WebComponentLifecycle {
 
     constructor(
         public props: NavigationProps,
-        protected router: Router,
+        public router: Router,
     ) {
         super();
-        this.props.menu = [];
+        this.props.menus = [];
     }
 
     init = () => {

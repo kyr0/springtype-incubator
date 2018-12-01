@@ -5,9 +5,9 @@ interface HomeProps {
 }
 
 @WebComponent({
-    tag: 'sb-home'
+    tag: 'sb-reference'
 })
-export class Home extends HTMLElement implements WebComponentLifecycle {
+export class Reference extends HTMLElement implements WebComponentLifecycle {
 
     constructor(
         public props: HomeProps
@@ -15,10 +15,13 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
         super();
     }
 
-    render() {
+    init = () => {
+    };
+
+    render = () => {
         return (
             <div>
-                home
+                referenz
             </div>)
     }
 }

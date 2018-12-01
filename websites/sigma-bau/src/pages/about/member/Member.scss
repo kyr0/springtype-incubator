@@ -1,0 +1,32 @@
+@import "./../../../SigmaBauApp";
+
+$img-logo-size: 172px;
+div{
+  text-align: center;
+}
+.logo {
+  width: $img-logo-size;
+  height: $img-logo-size;
+  border-radius: 50%;
+  margin: auto auto 16px;
+  display: block;
+}
+.h{
+  margin-bottom: 8px;
+}
+
+.h.name {
+  font-size: 28px;
+  line-height: 44px;
+  font-weight: 300;
+}
+.h.position{
+  font-size: 18px;
+  font-weight: 600;
+}
+.space-top-small{
+  margin-top: 20px !important;
+}
+ul.cv{
+  font-size: 14px;
+}
