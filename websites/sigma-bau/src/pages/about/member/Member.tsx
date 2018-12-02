@@ -1,5 +1,6 @@
 import {WebComponent, WebComponentLifecycle} from "../../../../../../src/package/html";
 import "./Member.scss"
+
 export interface MemberProps {
     img_src: string;
     name: string;
@@ -16,9 +17,11 @@ export interface MemberProps {
 export class Member extends HTMLElement implements WebComponentLifecycle {
     public props!: MemberProps;
 
-    constructor(
-    ) {
+    constructor() {
         super();
+    }
+
+    init = () => {
     }
 
     render() {
@@ -33,6 +36,7 @@ export class Member extends HTMLElement implements WebComponentLifecycle {
                         this.props.cv.map((el) => <li>{el}</li>)
                     }
                 </ul>
+                {this.props.img_src_company ? <img src={this.props.img_src_company}/> : ''}
             </div>
         )
     }

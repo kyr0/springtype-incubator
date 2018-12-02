@@ -15,7 +15,7 @@ export default (view: Navigation) => {
                 <a onclick={() => view.router.navigate(Home, {})} className="brand-logo">Logo</a>
                 <a data-target="mobile-demo" className="sidenav-trigger">
                     <burger-button props={{
-                        type: BurgerType.ROUND_CONNER,
+                        type: BurgerType.SWORD,
                         width: 62,
                         onClose: () => {
                             let menu: HTMLElement | null = document.getElementById('mobile-menu');

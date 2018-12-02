@@ -1,0 +1,28 @@
+@import "./../../../SigmaBauApp";
+
+.click {
+  cursor: pointer;
+}
+
+.header, .title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.title {
+  font-size: larger;
+}
+
+.spacer.bottom {
+  margin-bottom: 15px;
+}
+
+ul {
+  margin: 0
+}
+
+hr {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
