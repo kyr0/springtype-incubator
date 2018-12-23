@@ -1,0 +1,38 @@
+{
+  "name": "@springtype/springtype-incubator-miele-support",
+  "version": "1.0.1",
+  "description": "It shows a burger button to the world.",
+  "dependencies": {
+    "@types/materialize-css": "^1.0.5",
+    "@webcomponents/webcomponentsjs": "^2.1.3",
+    "cross-env": "^5.2.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "parcel-bundler": "^1.10.1",
+    "sass": "^1.14.1"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf .cache",
+    "start": "parcel serve src/index.html",
+    "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyr0/springtype-incubator.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^1.10.2",
+    "typescript": "^3.1.1"
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "ie 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
+  }
+}
