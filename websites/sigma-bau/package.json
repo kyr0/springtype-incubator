@@ -9,7 +9,8 @@
     "global": "^4.3.2",
     "materialize-css": "^1.0.0-rc.2",
     "parcel-bundler": "^1.10.3",
-    "sass": "^1.15.1"
+    "sass": "^1.15.1",
+    "tslib": "^1.9.3"
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf .cache",

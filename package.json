@@ -11,8 +11,7 @@
     "prompt": "^1.0.0",
     "reflect-metadata": "^0.1.12",
     "ts-node": "^7.0.1",
-    "tslib": "^1.9.3",
-    "typescript": "^3.1.1"
+    "tslib": "^1.9.3"
   },
   "bin": {
     "springtype": "./dist/bin/springtype.js"
@@ -20,10 +19,11 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "devDependencies": {
-    "@types/mocha": "^5.2.5",
     "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "typescript": "^3.2.4"
   },
   "scripts": {
     "package": "cd src && tsc",
