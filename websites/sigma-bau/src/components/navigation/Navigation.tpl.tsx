@@ -2,7 +2,7 @@ import {Navigation} from "./Navigation";
 import {BurgerType} from "../../../../../examples/burger-button/src/burger-button/BurgerButton";
 import "./Navigation.scss"
 import {Home} from "../../pages/home/Home";
-import {logoSVGMinimal} from "./NavigationRessource";
+import {RESOURCES} from "../../Resource";
 
 export default (view: Navigation) => {
     const size: number = view.props.menus.length;
@@ -12,13 +12,16 @@ export default (view: Navigation) => {
         </li>);
     const listItmesPhone = view.props.menus.map((menu, index) =>
         <li class="menu-item">
-            <a onClick={() => view.router.navigate(menu.routeFunction, {})}>{menu.displayName}</a>
+            <a onClick={() => {
+                view.router.navigate(menu.routeFunction, {});
+
+            }}>{menu.displayName}</a>
         </li>);
     return (<div>
         <nav>
-            <div className="nav-wrapper container">
-                <img onclick={() => view.router.navigate(Home, {})} className="brand-logo" src={logoSVGMinimal}/>
-                <a data-target="mobile-demo" className="sidenav-trigger">
+            <div class="nav-wrapper container">
+                <img onclick={() => view.router.navigate(Home, {})} class="nav-sigma-logo" src={RESOURCES.logo.minimal}/>
+                <a data-target="mobile-demo" class="sidenav-trigger">
                     <burger-button props={{
                         type: BurgerType.SWORD,
                         width: 60,
@@ -39,14 +42,14 @@ export default (view: Navigation) => {
                     }
                     }/>
                 </a>
-                <ul className="right hide-on-med-and-down">
+                <ul id="desktop-menu" class="right hide-on-med-and-down">
                     {
                         listItmes
                     }
                 </ul>
             </div>
         </nav>
-        <ul id="mobile-menu" className="center hide-on-large-only">
+        <ul id="mobile-menu" class="center hide-on-large-only">
             {
                 listItmesPhone
             }

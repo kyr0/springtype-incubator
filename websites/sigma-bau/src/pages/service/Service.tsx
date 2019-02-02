@@ -19,8 +19,8 @@ export class Service extends HTMLElement implements WebComponentLifecycle {
 
     render() {
         return (
-            <div >
-               service
+            <div class="container">
+                SERVICE
             </div>
         )
     }

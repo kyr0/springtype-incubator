@@ -1,14 +1,16 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-
 body{
   font-family: 'Raleway', sans-serif;
 }
-
+.fas {
+  font-family:'FontAwesome' !important;
+}
 // Color
 @import "../node_modules/materialize-css/sass/components/color-variables";
 
 @import "./SigmaBauColor";
+@import "./SigmaBauNav";
 
 
 
@@ -17,7 +19,6 @@ body{
 // Variables;
 @import "../node_modules/materialize-css/sass/components/variables";
 
-@import "./SigmaBauNav";
 
 
 // Reset

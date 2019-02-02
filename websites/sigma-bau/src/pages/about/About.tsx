@@ -4,7 +4,7 @@ import "./member/Member";
 import {MemberProps} from "./member/Member";
 import "./joboffer/JobOffer";
 import {JobOfferProps} from "./joboffer/JobOffer";
-import {portraiKranzmaierSrc, portraiReiterSrc} from "./AboutRessource";
+import {RESOURCES} from "../../Resource";
 
 interface HomeProps {
 
@@ -57,7 +57,7 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 'Wärmebedarfsberechnungen',
                 'Brandschutzplanungen'
             ],
-            img_src: portraiKranzmaierSrc,
+            img_src: RESOURCES.team.kranzmaier,
         };
 
         const reiter: MemberProps = {
@@ -69,13 +69,18 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 'Begrünungspläne nach BayKompV',
                 'Aussiedlungskonzepte'
             ],
-            img_src: portraiReiterSrc
+            img_src: RESOURCES.team.reiter
         };
 
         return (
 
-            <div>
-                <div class="container">
+            <div class="container">
+                ABOUT
+            </div>
+
+        )
+    }
+                /*<div class="container">
                     <div class="row">
                         <div class="col s12">
                             <p>Aus der Summe der zwei Einzelunternehmen "Bauplanung Reiter Wolfgang"
@@ -115,12 +120,8 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 </div>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1328.8570026802754!2d12.139258458292051!3d48.23138138149246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775f819480cdb6f%3A0xc3fb5b032838e4b!2sJohann+Kranzmaier!5e0!3m2!1sde!2sde!4v1547830845045"
-                    width="600" height="450" frameBorder="0" style="border:0" allowFullScreen></iframe>
+                     frameBorder="0" style="border:0" allowFullScreen></iframe>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d766.048724944172!2d12.232006152007694!3d48.204729291112656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775fa3db75b19c9%3A0xd7d00ba07af7f60a!2sOberthalham+2%2C+84419+Obertaufkirchen!5e1!3m2!1sde!2sde!4v1547832512069"
-                    width="600" height="450" frameBorder="0" style="border:0" allowFullScreen></iframe>
-            </div>
-
-        )
-    }
+                     frameBorder="0" style="border:0" allowFullScreen></iframe>*/
 }

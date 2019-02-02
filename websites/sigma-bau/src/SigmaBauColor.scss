@@ -1,12 +1,12 @@
 // Color
 
-$primary-color: color("grey", "lighten-5") !default;
-$primary-color-light: lighten($primary-color, 30%) !default;
-$primary-color-dark: darken($primary-color, 50%) !default;
+$primary-color: color("grey", "lighten-5");
+$primary-color-light: lighten($primary-color, 30%);
+$primary-color-dark: darken($primary-color, 50%);
 
-$secondary-color: color("amber", "lighten-1") !default;
-$success-color: color("green", "base") !default;
-$error-color: color("red", "base") !default;
-$link-color: color("grey", "lighten-1") !default;
+$secondary-color: color("amber", "lighten-1");
+$success-color: color("green", "base");
+$error-color: color("red", "base");
+$link-color: color("grey", "lighten-1");
 
 $sigma-color: #4f4c4c;

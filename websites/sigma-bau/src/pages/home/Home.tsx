@@ -28,13 +28,14 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
     render() {
 
         return (
-            <div>
-                home
+            <div class="container">
+                HOME
+            </div>)
+    }
+/*                home
                 <div className="parallax-container">
                     <div className="parallax">
                         <img src={parallaxImgSrc}/>
                     </div>
-                </div>
-            </div>)
-    }
+                </div>*/
 }

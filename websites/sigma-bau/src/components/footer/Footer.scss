@@ -1,11 +1,66 @@
 @import "./../../SigmaBauApp";
 
 
-@media only screen and (min-width: 601px){
- .left-side{
-   text-align: start !important;
- }
-  .right-side{
+@media only screen and (min-width: 601px) {
+  .left-side {
+    text-align: start !important;
+  }
+  .right-side {
     text-align: end !important;
   }
+}
+
+.page-footer {
+  color: $sigma-color !important;
+}
+
+.margin.top {
+  margin-top: 5px;
+}
+
+.margin.top.x2 {
+  margin-top: 10px;
+}
+.margin.top.x3 {
+  margin-top: 15px;
+}
+
+.padding.bottom {
+  padding-bottom: 5px;
+}
+
+.padding.bottom.x2 {
+  padding-bottom: 10px;
+}
+
+.padding.bottom.x3 {
+  padding-bottom: 15px;
+}
+
+#logo {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+}
+
+.map {
+  margin-bottom: 20px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.w50 {
+  width: 50%;
+}
+.w20 {
+  width: 20%;
+}
+
+hr {
+  color: $sigma-color;
+}
+
+.box {
+  border: solid 1px $sigma-color;
 }

@@ -24,12 +24,26 @@
   display: block !important;
 }
 
-.brand-logo {
-  display: block !important;
+.nav-sigma-logo {
+  float: left;
   height: $navbar-height - $navbar-height*0.2;
   margin-top: $navbar-height*0.1;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: 60%;
+}
+#desktop-menu > li > a{
+  font-size: 18px;
+}
+burger-button > div {
+  margin-top: ($navbar-height - 60px)/2;
 }
 
-burger-button > div{
-  margin-top: ($navbar-height - 60px)/2;
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+
+.sidenav-trigger {
+  float: right !important;
 }
