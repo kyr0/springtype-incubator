@@ -1,0 +1,19 @@
+@import "./../../SigmaBauApp";
+
+.carousel-item .heading
+{
+  text-align: left;
+  color: $sigma-color !important;
+  font-weight: bolder !important;
+  position: absolute;
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: rgba(white,0.7);
+}
+.carousel-item{
+  min-height: 0 !important;
+}
+.carousel{
+  height: auto;
+  min-height: 0;
+}

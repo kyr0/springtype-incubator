@@ -1,19 +1,53 @@
 @import "./../../SigmaBauApp";
 
-.gray-background{
+.gray-background {
   background-color: #f4f4f4;
 }
-.member.header{
-  font-size: 24px;
+
+.member_header {
+  font-size: 28px;
   line-height: 32px;
 }
-sb-member > div{
+
+sb-member > div {
   margin: 40px 10px 10px;
 }
+
 .team {
   padding-top: 64px;
   padding-bottom: 64px;
 }
-.spacer.vertical{
+
+.spacer.vertical {
   margin-bottom: 18px;
 }
+
+.logo_company {
+  width: 100%;
+  padding: 15px;
+  max-width: 400px;
+}
+
+.logo_company.x2 {
+  max-width: 500px;
+}
+
+.w10 {
+  width: 10%;
+}
+
+.w20 {
+  width: 20%;
+}
+.w40 {
+  width: 40%;
+}
+
+.logo {
+  box-shadow: 3px 3px 15px #4f4c4c;
+}
+.padding.bottom.x3{
+  width: 15px;
+}
+
+

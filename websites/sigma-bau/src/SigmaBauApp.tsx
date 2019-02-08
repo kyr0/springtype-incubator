@@ -8,6 +8,8 @@ import {WebComponent} from "../../../src/package/html";
 import {NavigationProps} from "./components/navigation/Navigation";
 import {Reference} from "./pages/references/Reference";
 import {FooterProps} from "./components/footer/Footer";
+import {Imprint} from "./pages/imprint/Imprint";
+import {Privacy} from "./pages/privacy/Privacy";
 
 @WebApp({
     routes: {
@@ -15,6 +17,8 @@ import {FooterProps} from "./components/footer/Footer";
         '/services': Service,
         '/reference': Reference,
         '/about_us': About,
+        '/imprint': Imprint,
+        '/privacy': Privacy,
     }
 })
 @WebComponent({
@@ -33,13 +37,15 @@ import {FooterProps} from "./components/footer/Footer";
 export class SigmaBauApp extends HTMLElement {
     footerProps: FooterProps ={name: 'SIGΣA plan + bau'  };
     navProps: NavigationProps = {
-        menus: [{
+        menus: [
+            {
             displayName: 'Referenzen',
             routeFunction: Reference
-        }, {
+        },/* {
             displayName: 'Leistungen',
             routeFunction: Service
-        }, {
+        },*/
+            {
             displayName: 'Über Uns',
             routeFunction: About
         }]

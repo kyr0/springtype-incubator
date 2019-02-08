@@ -1,6 +1,8 @@
 import {Footer} from "./Footer";
 import "./Footer.scss"
 import {RESOURCES} from "../../Resource";
+import {Imprint} from "../../pages/imprint/Imprint";
+import {Privacy} from "../../pages/privacy/Privacy";
 
 export default (view: Footer) =>
 
@@ -8,7 +10,7 @@ export default (view: Footer) =>
         <div className="container">
             <div className="row">
                 <div className="col l6 s12">
-                    <img id="logo" src={RESOURCES.logo.normal}/>
+                    <img id="logo" src={RESOURCES.logo.small}/>
                     <hr class="w20"/>
                     <div className="left-side">
                         <div class="contact">
@@ -59,7 +61,13 @@ export default (view: Footer) =>
                     </div>
                     <div className="col s12 m6">
                         <div>
-                            <a href="#!">Impressum</a>
+                            <a class="click" onClick={() => {
+                                view.router.navigate(Privacy, {});
+                            }}>Datenschutzerklärung</a>
+                        </div><div>
+                            <a class="click" onClick={() => {
+                                view.router.navigate(Imprint, {});
+                            }}>Impressum</a>
                         </div>
                     </div>
                 </div>

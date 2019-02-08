@@ -46,7 +46,8 @@ export class About extends HTMLElement implements WebComponentLifecycle {
             ],
 
 
-            mail: 'info@sigma-bau.de'};
+            mail: 'info@sigma-bau.de'
+        };
 
         const hans: MemberProps = {
             position: 'Projektleiter',
@@ -74,54 +75,58 @@ export class About extends HTMLElement implements WebComponentLifecycle {
 
         return (
 
-            <div class="container">
-                ABOUT
-            </div>
-
-        )
-    }
-                /*<div class="container">
-                    <div class="row">
-                        <div class="col s12">
+            <div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col s12 offset-l3 l6">
                             <p>Aus der Summe der zwei Einzelunternehmen "Bauplanung Reiter Wolfgang"
                                 und "kranzmaier planung" entwickelte sich das Unternehmen</p>
                         </div>
-                        <div class="col s12">
-                            <p>"SIGΣA plan + bau". Zusammen sind wir mittlerweile 45 Jahre in der Baubranche tätig. Als
-                                gelernter Mauerer und Zimmerer konnten wir weitreichend praktische Bauerfahrung sammeln.
+                        <div className="col s12 offset-l3 l6">
+                            <img class="logo_company" src={RESOURCES.logo.reiter}/>
+                            <img class="logo_company" src={RESOURCES.logo.kranzmaier}/>
+                        </div>
+                        <div className="col s12 offset-l3 l6">
+                            <p>"SIGΣA plan + bau". Zusammen sind wir mittlerweile <b>45 Jahre</b> in der Baubranche
+                                tätig. <br/> Als <i>gelernter Mauerer und Zimmerer</i> konnten wir weitreichend praktische Bauerfahrung
+                                sammeln.
+                                <hr class="w20"/>
                                 Dieser Erfahrungsschatz und unsere stetigen Weitbildungen, können wir jetzt gemeinsam in
-                                der Bau- und Planungsbranche, für unsere Kunden sowie Geschäftspartner nutzen.</p>
+                                der Bau- und Planungsbranche, für unsere Kunden sowie Geschäftspartner nutzen.
+                            </p>
+                            <img className="logo_company x2" src={RESOURCES.logo.normal}/>
+
                         </div>
                     </div>
                 </div>
-
                 <div className="gray-background">
-                    <div className="team container" style="">
-                        <div className="row">
-                            <div class="col s12">
-                                <div class="member header">Unser Team</div>
+                    <div className="container" style="">
+                        <div className="team row">
+                            <div className="col s12 padding bottom x3">
+                                <div className="member_header">Unser Team</div>
                             </div>
-                            <div class="col s12 m6">
+                            <div className="col s12 m6 offset-l2 l4">
                                 <sb-member props={hans}/>
                             </div>
-                            <div class="col s12 m6">
+                            <div className="col s12 m6 l4">
                                 <sb-member props={reiter}/>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="spacer vertical"/>
-                <div class="container ">
-                    <div class="row">
-                        <div class="col s12 m12 xl6 offset-xl3">
+                <div className="spacer vertical"/>
+                <div className="container ">
+                    <div className="row">
+                        <div className="col s12 m12 xl6 offset-xl3">
+                            <h5>Wir suchen Verstärkung</h5>
                             <sb-job-offer props={jobOffer}/>
                         </div>
                     </div>
                 </div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1328.8570026802754!2d12.139258458292051!3d48.23138138149246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775f819480cdb6f%3A0xc3fb5b032838e4b!2sJohann+Kranzmaier!5e0!3m2!1sde!2sde!4v1547830845045"
-                     frameBorder="0" style="border:0" allowFullScreen></iframe>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d766.048724944172!2d12.232006152007694!3d48.204729291112656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775fa3db75b19c9%3A0xd7d00ba07af7f60a!2sOberthalham+2%2C+84419+Obertaufkirchen!5e1!3m2!1sde!2sde!4v1547832512069"
-                     frameBorder="0" style="border:0" allowFullScreen></iframe>*/
+            </div>
+
+        )
+    }
+
+
 }

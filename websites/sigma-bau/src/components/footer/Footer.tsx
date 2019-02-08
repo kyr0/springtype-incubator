@@ -15,7 +15,7 @@ export class Footer extends HTMLElement implements WebComponentLifecycle {
 
     constructor(
         public props: FooterProps,
-        protected router: Router,
+        public router: Router,
     ) {
         super();
     }

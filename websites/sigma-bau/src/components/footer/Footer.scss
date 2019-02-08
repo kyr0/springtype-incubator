@@ -40,7 +40,6 @@
 #logo {
   width: 100%;
   max-width: 400px;
-  margin-bottom: 15px;
 }
 
 .map {
@@ -63,4 +62,8 @@ hr {
 
 .box {
   border: solid 1px $sigma-color;
+}
+
+.click {
+  cursor: pointer;
 }
