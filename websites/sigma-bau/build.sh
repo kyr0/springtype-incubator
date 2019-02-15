@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+docker login registry.mannseicher.com
 npm run-script clean
 npm run-script build
 
