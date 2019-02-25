@@ -43,7 +43,13 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col s12 m6 offset-l2 l4">
+                        <div class="col s12">
+                            <img id="sigma" src={RESOURCES.page.home.sigma}/>
+
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div class="col s12 offset-m3 m6 offset-l4 l4">
                             "Das große Sigma Σ ist in der Mathematik
 
                             das Zeichen für Summe und Signatur.

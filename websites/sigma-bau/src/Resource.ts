@@ -9,6 +9,7 @@ import teamReiter from "./assets/images/team/reiter.jpg";
 import teamKranzmaier from "./assets/images/team/hans.jpg";
 //other
 import homeParallax from "./assets/images/page/home/parallax.webp";
+import homeSigma from "./assets/images/page/home/sigma.svg";
 import homePlanning from "./assets/images/page/home/planung.webp";
 import homeLivinghouse from "./assets/images/page/home/wohnhaus.webp";
 import homeLivinghouse1 from "./assets/images/page/home/mehrfamilienhauses.webp";
@@ -30,6 +31,7 @@ export const RESOURCES = {
     page: {
         home: {
             parallax: homeParallax,
+            sigma: homeSigma,
             services: {
                 planning: homePlanning,
                 livinghouse: homeLivinghouse,
