@@ -114,19 +114,19 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                         </div>
                     </div>
                 </div>
-                <div className="spacer vertical"/>
-                <div className="container ">
-                    <div className="row">
-                        <div className="col s12 m12 xl6 offset-xl3">
-                            <h5>Wir suchen Verstärkung</h5>
-                            <sb-job-offer props={jobOffer}/>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
         )
     }
-
+    /* <div className="spacer vertical"/>
+                   <div className="container ">
+                       <div className="row">
+                           <div className="col s12 m12 xl6 offset-xl3">
+                               <h5>Wir suchen Verstärkung</h5>
+                               <sb-job-offer props={jobOffer}/>
+                           </div>
+                       </div>
+                   </div>*/
 
 }

@@ -4,41 +4,56 @@ import {RESOURCES} from "../../Resource";
 import {Imprint} from "../../pages/imprint/Imprint";
 import {Privacy} from "../../pages/privacy/Privacy";
 
-export default (view: Footer) =>
+export default (view: Footer) => {
+    return (<div class="page-footer">
+        <div class="container">
+            <div class="row">
 
-    <div className="page-footer">
-        <div className="container">
-            <div className="row">
-                <div className="col l6 s12">
+                <div class="v-space-bottom-20 col s12">
+                    <div class="scrollWrapper" onResize={()=> console.error('test')}>
+                        <div id="scrollableArea">
+                            {RESOURCES.footer.company.map((value) => {
+                                const img = value.img;
+                                const name = value.name;
+                                const url = value.url || '';
+                                return (<a class="company click" target="_blank" title={name}
+                                           href={url}><img src={img}
+                                                           alt={name}/></a>);
+
+                            })}
+                        </div>
+                    </div>
+                </div>
+                <div class="col l6 s12">
                     <img id="logo" src={RESOURCES.logo.small}/>
                     <hr class="w20"/>
-                    <div className="left-side">
+                    <div class="left-side">
                         <div class="contact">
                             <b><i class="padding bottom">Johannes Kranzmaier</i></b>
                             <br/>
                             <a href="mailto:kranzmaier@sigma-bau.de" target="_top">
-                                <i className="fas fa-envelope"></i> kranzmaier@sigma-bau.de
+                                <i class="fas fa-envelope"></i> kranzmaier@sigma-bau.de
                             </a>
                             <br/>
                             <a href="tel:+491794608414">
-                                <i className="fas fa-phone"></i> +49 (0)179 4608414
+                                <i class="fas fa-phone"></i> +49 (0)179 4608414
                             </a>
                         </div>
                         <div class="margin top x3 contact">
                             <b><i class="padding bottom">Wolfgang Reiter</i></b>
                             <br/>
                             <a href="mailto:reiter@sigma-bau.de" target="_top">
-                                <i className="fas fa-envelope"></i> reiter@sigma-bau.de
+                                <i class="fas fa-envelope"></i> reiter@sigma-bau.de
                             </a>
                             <br/>
                             <a href="tel:+4915126611467">
-                                <i className="fas fa-phone"></i> +49 (0)151 26611467
+                                <i class="fas fa-phone"></i> +49 (0)151 26611467
                             </a>
                         </div>
                     </div>
-                    <hr className="w20"/>
+                    <hr class="w20"/>
                 </div>
-                <div className="col offset-l1 l4 s12">
+                <div class="col offset-l1 l4 s12">
                     <div class="box padding x2 bottom">
                         <h5 class="padding x2 bottom"><b>Standort</b></h5>
                         <iframe class="map"
@@ -52,19 +67,20 @@ export default (view: Footer) =>
             </div>
         </div>
         <div class="padding bottom">
-            <div className="container">
-                <div className="row">
-                    <div className="col s12 m6">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6">
                         <div>
                             © {new Date().getFullYear()} Copyright {view.props.name}
                         </div>
                     </div>
-                    <div className="col s12 m6">
+                    <div class="col s12 m6">
                         <div>
                             <a class="click" onClick={() => {
                                 view.router.navigate(Privacy, {});
                             }}>Datenschutzerklärung</a>
-                        </div><div>
+                        </div>
+                        <div>
                             <a class="click" onClick={() => {
                                 view.router.navigate(Imprint, {});
                             }}>Impressum</a>
@@ -73,9 +89,5 @@ export default (view: Footer) =>
                 </div>
             </div>
         </div>
-    </div>
-/*
-Tel: 0179 - 4608414 -> Kranzmaier
-
-Tel: 0151 - 26611467 -> Reiter*/
-
+    </div>)
+}

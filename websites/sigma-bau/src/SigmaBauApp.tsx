@@ -2,7 +2,6 @@ import {WebApp} from "../../../src/package/html/src/decorator/WebApp";
 import {Home} from "./pages/home/Home";
 import "./components/navigation/Navigation";
 import "./components/footer/Footer";
-import {Service} from "./pages/service/Service";
 import {About} from "./pages/about/About";
 import {WebComponent} from "../../../src/package/html";
 import {NavigationProps} from "./components/navigation/Navigation";
@@ -14,7 +13,6 @@ import {Privacy} from "./pages/privacy/Privacy";
 @WebApp({
     routes: {
         '': Home,
-        '/services': Service,
         '/reference': Reference,
         '/about_us': About,
         '/imprint': Imprint,

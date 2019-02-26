@@ -3,7 +3,7 @@ import {Router} from "../../../../../src/package/html/src/router/Router";
 import template from "./Footer.tpl";
 
 export interface FooterProps {
-    name: string
+    name: string,
 }
 
 @WebComponent({
@@ -21,7 +21,20 @@ export class Footer extends HTMLElement implements WebComponentLifecycle {
     }
 
     init = () => {
+
     };
+
+    mountChildren = () => {
+        const scrollWidth = () => {
+            const scrollArea = document.getElementById("scrollableArea");
+            if (scrollArea != null) {
+                console.error('scrollArea', scrollArea, scrollArea.offsetWidth);
+            }
+        };
+        scrollWidth();
+        window.addEventListener('resize', scrollWidth)
+
+    }
 
 
 }

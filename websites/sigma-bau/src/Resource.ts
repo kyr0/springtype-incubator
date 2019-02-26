@@ -15,6 +15,11 @@ import homeLivinghouse from "./assets/images/page/home/wohnhaus.webp";
 import homeLivinghouse1 from "./assets/images/page/home/mehrfamilienhauses.webp";
 import homeLivinghouse2 from "./assets/images/page/home/mehrfamilienhauses1.webp";
 import homeLivinghouse3 from "./assets/images/page/home/mehrfamilienhauses2.webp";
+//logo companies
+import footerCompanyLechner from "./assets/images/footer/company/lechner.jpg"
+import footerCompanyMaiSmartHome from "./assets/images/footer/company/mai_smart_home.png"
+import footerCompanyNeulingerbau from "./assets/images/footer/company/neulinger_bau.png"
+import footerCompanyZimmereiRachl from "./assets/images/footer/company/zimmerei_rachl.png"
 
 export const RESOURCES = {
     logo: {
@@ -40,6 +45,18 @@ export const RESOURCES = {
                 livinghouse3: homeLivinghouse3
             }
         }
+    },
+    footer: {
+        company: [
+            {
+                img: footerCompanyLechner,
+                name: "Lechner Heizung & Sanitär",
+                url: "https://www.google.com/maps/place/Fa.+Lechner+Heizung+%26+Sanit%C3%A4r,+Isen/@48.2053547,12.0577073,17z/data=!3m1!4b1!4m5!3m4!1s0x479e02560e3dbafb:0x2dd4d745083c3b9c!8m2!3d48.2053511!4d12.059896"
+            },
+            {img: footerCompanyMaiSmartHome, name: "MaiSmartHome GmbH", url: "https://mai-smart-home.de/"},
+            {img: footerCompanyNeulingerbau, name: "Neulinger Bau", url: "https://www.bau-neulinger.de/"},
+            {img: footerCompanyZimmereiRachl, name: "Zimmerei & Holzbau Rachl GbR", url: "http://zimmerei-rachl.de/"}
+        ]
     }
 
 };
