@@ -22,10 +22,10 @@ export interface WebComponentConfig {
     isolateMode?: ShadowAttachMode;
     observeAttributes?: Array<string>;
     renderStrategy?: RenderStrategy;
-    template?: (view: any) => IReactCreateElement;
+    template?: (view: any) => IReactCreateElement | IReactCreateElement[];
 }
 
-export interface WebComponentLifecycle{
+export interface WebComponentLifecycle {
 
     props?: any;
 
@@ -35,6 +35,7 @@ export interface WebComponentLifecycle{
 
     remount?(): void;
 
+    // @ts-ignore
     render?(): JSX.Element;
 
     createNativeElement?(reactCreateElement: IReactCreateElement): any;
@@ -260,16 +261,26 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
             }
 
             protected flow = (initial: boolean = false) => {
-                const _element: IReactCreateElement = this.render(initial);
+                const _element: IReactCreateElement | IReactCreateElement[] = this.render(initial);
                 if (_element) {
-                    const element = this.createNativeElement(_element);
-                    if (element) {
+                    let _elements: IReactCreateElement[];
+                    if (Array.isArray(_element)) {
+                        _elements = _element || [];
+                    } else {
+                        _elements = [_element];
+                    }
+
+                    const elements = _elements
+                        //filter functions that return void ;)
+                        .filter(el => !!el)
+                        .map((el) => this.createNativeElement(el));
+                    if (elements.length > 0) {
                         if (config.isolate) {
-                            this.shadowRoot.appendChild(element);
+                            elements.map(el => this.shadowRoot.appendChild(el));
                         } else {
-                            this.appendChild(element);
+                            elements.map(el => this.appendChild(el));
                         }
-                        Reflect.set(this, CHILD_ELEMENT, element);
+                        Reflect.set(this, CHILD_ELEMENT, elements);
 
                         if (initial) {
                             this.mountChildren();

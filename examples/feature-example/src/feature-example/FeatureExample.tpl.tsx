@@ -7,7 +7,6 @@ import {BurgerType} from "../../../burger-button/src/burger-button/BurgerButton"
 export default (view: FeatureExample) =>
 
     <div>
-        <link rel="stylesheet" href={stylesheet}/>
 
         <button class="burger-button" onclick={view.onButtonClick} bind={{btn: view}}>
             {
