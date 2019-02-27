@@ -1,9 +1,5 @@
 import {WebComponent, WebComponentLifecycle} from "../../../../../src/package/html";
-import "../../components/slider/Slider"
-/*import {SliderProps} from "../../components/slider/Slider";
-import slArch1 from "../../assets/images/slider/architecture/01.png"
-import slArch2 from "../../assets/images/slider/architecture/02.png"
-import slArch3 from "../../assets/images/slider/architecture/03.jpg"*/
+
 interface ReferenceProps {
 }
 

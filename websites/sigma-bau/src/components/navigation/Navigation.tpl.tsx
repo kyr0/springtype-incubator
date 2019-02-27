@@ -5,22 +5,11 @@ import {Home} from "../../pages/home/Home";
 import {RESOURCES} from "../../Resource";
 
 export default (view: Navigation) => {
-    const size: number = view.props.menus.length;
-    const listItmes = view.props.menus.map((menu) =>
-        <li class="menu-item">
-            <a onClick={() => view.router.navigate(menu.routeFunction, {})}>{menu.displayName}</a>
-        </li>);
-    const listItmesPhone = view.props.menus.map((menu, index) =>
-        <li class="menu-item">
-            <a onClick={() => {
-                view.router.navigate(menu.routeFunction, {});
-
-            }}>{menu.displayName}</a>
-        </li>);
-    return (<div>
+    return [
         <nav>
             <div class="nav-wrapper container">
-                <img onclick={() => view.router.navigate(Home, {})} class="nav-sigma-logo" src={RESOURCES.logo.minimal}/>
+                <img onclick={() => view.router.navigate(Home, {})} class="nav-sigma-logo"
+                     src={RESOURCES.logo.minimal} alt=""/>
                 <a data-target="mobile-demo" class="sidenav-trigger">
                     <burger-button props={{
                         type: BurgerType.SWORD,
@@ -44,17 +33,22 @@ export default (view: Navigation) => {
                 </a>
                 <ul id="desktop-menu" class="right hide-on-med-and-down">
                     {
-                        listItmes
+                        view.props.menus.map((menu) =>
+                            <li class="menu-item">
+                                <a onClick={() => view.router.navigate(menu.routeFunction, {})}>{menu.displayName}</a>
+                            </li>)
                     }
                 </ul>
             </div>
-        </nav>
+        </nav>,
         <ul id="mobile-menu" class="center hide-on-large-only">
             {
-                listItmesPhone
+                view.props.menus.map((menu) =>
+                    <li class="menu-item">
+                        <a onClick={() => {
+                            view.router.navigate(menu.routeFunction, {});
+                        }}>{menu.displayName}</a>
+                    </li>)
             }
-        </ul>
-
-
-    </div>)
+        </ul>]
 }

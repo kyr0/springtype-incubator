@@ -44,7 +44,7 @@ export class JobOffer extends HTMLElement implements WebComponentLifecycle {
                     <ul>
                         {this.props.offer.map((off) => <li>{off}</li>)}
                     </ul>
-<hr/>
+                    <hr/>
                     {this.props.footer ? this.props.footer.map((foo) => <div class="spacer bottom"> {foo}</div>) : ''}
                     <a href={'mailto:' + this.props.mail}>{this.props.mail}</a>
                 </div>

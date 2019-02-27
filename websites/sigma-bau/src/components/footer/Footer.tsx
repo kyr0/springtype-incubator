@@ -23,18 +23,4 @@ export class Footer extends HTMLElement implements WebComponentLifecycle {
     init = () => {
 
     };
-
-    mountChildren = () => {
-        const scrollWidth = () => {
-            const scrollArea = document.getElementById("scrollableArea");
-            if (scrollArea != null) {
-                console.error('scrollArea', scrollArea, scrollArea.offsetWidth);
-            }
-        };
-        scrollWidth();
-        window.addEventListener('resize', scrollWidth)
-
-    }
-
-
 }

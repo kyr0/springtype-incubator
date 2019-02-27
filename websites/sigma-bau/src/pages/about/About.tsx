@@ -70,12 +70,12 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 'Begrünungspläne nach BayKompV',
                 'Aussiedlungskonzepte'
             ],
-            img_src: RESOURCES.team.reiter
+            img_src: RESOURCES.team.reiter,
         };
 
         return (
 
-            <div>
+            [
                 <div className="container">
                     <div className="row">
                         <div className="col s12 offset-l3 l6">
@@ -88,7 +88,8 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                         </div>
                         <div className="col s12 offset-l3 l6">
                             <p>"SIGΣA plan + bau". Zusammen sind wir mittlerweile <b>45 Jahre</b> in der Baubranche
-                                tätig. <br/> Als <i>gelernter Mauerer und Zimmerer</i> konnten wir weitreichend praktische Bauerfahrung
+                                tätig. <br/> Als <i>gelernter Mauerer und Zimmerer</i> konnten wir weitreichend
+                                praktische Bauerfahrung
                                 sammeln.
                                 <hr class="w20"/>
                                 Dieser Erfahrungsschatz und unsere stetigen Weitbildungen, können wir jetzt gemeinsam in
@@ -98,7 +99,7 @@ export class About extends HTMLElement implements WebComponentLifecycle {
 
                         </div>
                     </div>
-                </div>
+                </div>,
                 <div className="gray-background">
                     <div className="container" style="">
                         <div className="team row">
@@ -114,11 +115,10 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                         </div>
                     </div>
                 </div>
-
-            </div>
-
+            ]
         )
     }
+
     /* <div className="spacer vertical"/>
                    <div className="container ">
                        <div className="row">

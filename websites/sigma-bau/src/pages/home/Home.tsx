@@ -33,18 +33,17 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
 
 
     render() {
-
         return (
-            <div>
+            [
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src={RESOURCES.page.home.parallax}/>
+                        <img src={RESOURCES.page.home.parallax} alt=""/>
                     </div>
-                </div>
+                </div>,
                 <div class="container">
                     <div class="row">
                         <div class="col s12">
-                            <img id="sigma" src={RESOURCES.page.home.sigma}/>
+                            <img id="sigma" src={RESOURCES.page.home.sigma} alt=""/>
 
                         </div>
                     </div>
@@ -72,7 +71,7 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                                         - Leistungsphase 1 - 3<br/>
                                         - Neuba
                                     </div>
-                                    <img src={RESOURCES.page.home.services.planning}/>
+                                    <img src={RESOURCES.page.home.services.planning} alt=""/>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="heading">
@@ -81,7 +80,7 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                                         - Leistungsphase 1 – 9<br/>
                                         - Neubau
                                     </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse}/>
+                                    <img src={RESOURCES.page.home.services.livinghouse} alt=""/>
                                 </div>
                                 <div className="carousel-item">
                                     <div className="heading">
@@ -90,7 +89,7 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                                         - Leistungsphase 1 – 5<br/>
                                         - Neubau
                                     </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse1}/>
+                                    <img src={RESOURCES.page.home.services.livinghouse1} alt=""/>
                                 </div>
                                 <div className="carousel-item">
                                     <div className="heading">
@@ -99,7 +98,7 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                                         - Leistungsphase 1 – 5<br/>
                                         - Neubau
                                     </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse2}/>
+                                    <img src={RESOURCES.page.home.services.livinghouse2} alt=""/>
                                 </div>
                                 <div className="carousel-item">
                                     <div className="heading">
@@ -108,14 +107,13 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                                         - Leistungsphase 1 – 8<br/>
                                         - Neubau
                                     </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse3}/>
+                                    <img src={RESOURCES.page.home.services.livinghouse3} alt=""/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+          ]
         )
     }
 }

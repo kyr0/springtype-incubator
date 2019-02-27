@@ -49,13 +49,22 @@ export const RESOURCES = {
     footer: {
         company: [
             {
-                img: footerCompanyLechner,
+                src: footerCompanyLechner,
                 name: "Lechner Heizung & Sanitär",
                 url: "https://www.google.com/maps/place/Fa.+Lechner+Heizung+%26+Sanit%C3%A4r,+Isen/@48.2053547,12.0577073,17z/data=!3m1!4b1!4m5!3m4!1s0x479e02560e3dbafb:0x2dd4d745083c3b9c!8m2!3d48.2053511!4d12.059896"
             },
-            {img: footerCompanyMaiSmartHome, name: "MaiSmartHome GmbH", url: "https://mai-smart-home.de/"},
-            {img: footerCompanyNeulingerbau, name: "Neulinger Bau", url: "https://www.bau-neulinger.de/"},
-            {img: footerCompanyZimmereiRachl, name: "Zimmerei & Holzbau Rachl GbR", url: "http://zimmerei-rachl.de/"}
+            {
+                src: footerCompanyMaiSmartHome,
+                name: "MaiSmartHome GmbH",
+                url: "https://mai-smart-home.de/"},
+            {
+                src: footerCompanyNeulingerbau,
+                name: "Neulinger Bau",
+                url: "https://www.bau-neulinger.de/"},
+            {
+                src: footerCompanyZimmereiRachl,
+                name: "Zimmerei & Holzbau Rachl GbR",
+                url: "http://zimmerei-rachl.de/"}
         ]
     }
 

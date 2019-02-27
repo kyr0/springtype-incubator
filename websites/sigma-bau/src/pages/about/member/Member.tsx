@@ -7,8 +7,6 @@ export interface MemberProps {
     position: string;
     cv: string[];
     email: string
-    img_src_company?: string
-
 }
 
 @WebComponent({
@@ -22,22 +20,17 @@ export class Member extends HTMLElement implements WebComponentLifecycle {
     }
 
     init = () => {
-    }
+    };
 
-    render() {
-        return (
-
-            <div>
-                <img class="logo" src={this.props.img_src}/>
-                <div class="h name">{this.props.name}</div>
-                <div class="h position">{this.props.position}</div>
-                <ul class="cv space-top-small">
-                    {
-                        this.props.cv.map((el) => <li>{el}</li>)
-                    }
-                </ul>
-                {this.props.img_src_company ? <img src={this.props.img_src_company}/> : ''}
-            </div>
-        )
-    }
+    render = () =>
+        [
+            <img class="logo" src={this.props.img_src} alt=""/>,
+            <div class="h name">{this.props.name}</div>,
+            <div class="h position">{this.props.position}</div>,
+            <ul class="cv space-top-small">
+                {
+                    this.props.cv.map((el) => <li>{el}</li>)
+                }
+            </ul>
+        ]
 }

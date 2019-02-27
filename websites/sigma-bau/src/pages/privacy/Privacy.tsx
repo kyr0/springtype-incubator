@@ -23,7 +23,6 @@ export class Privacy extends HTMLElement implements WebComponentLifecycle {
     render() {
 
         return (
-            <div>
                 <div className="container">
                     <div className="row">
                         <div className="col s12 offset-m2 m8">
@@ -284,7 +283,6 @@ export class Privacy extends HTMLElement implements WebComponentLifecycle {
                         </div>
                     </div>
                 </div>
-            </div>
 
         )
     }
