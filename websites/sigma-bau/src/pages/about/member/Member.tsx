@@ -13,9 +13,8 @@ export interface MemberProps {
     tag: 'sb-member'
 })
 export class Member extends HTMLElement implements WebComponentLifecycle {
-    public props!: MemberProps;
 
-    constructor() {
+    constructor(public props: MemberProps) {
         super();
     }
 

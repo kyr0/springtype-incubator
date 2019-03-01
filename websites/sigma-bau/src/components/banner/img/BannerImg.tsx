@@ -15,9 +15,9 @@ export interface BannerImgProps {
 })
 export class BannerImg extends HTMLElement implements WebComponentLifecycle {
 
-    props!: BannerImgProps;
 
-    constructor() {
+
+    constructor(public props: BannerImgProps) {
         super();
     }
 
@@ -28,7 +28,7 @@ export class BannerImg extends HTMLElement implements WebComponentLifecycle {
         const divArea = this.getElementsByClassName("banner")[0];
         if (divArea != null) {
             this.props.width = divArea.scrollWidth;
-            console.error('banner image', this.props.width);
+          //  console.error('banner image', this.props.width);
         }
     }
 

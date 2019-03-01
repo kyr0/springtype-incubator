@@ -16,9 +16,7 @@ export interface BannerProps {
     template
 })
 export class Banner extends HTMLElement implements WebComponentLifecycle {
-    props!: BannerProps;
-
-    constructor() {
+    constructor(public props: BannerProps) {
         super();
     }
 
@@ -31,7 +29,7 @@ export class Banner extends HTMLElement implements WebComponentLifecycle {
             const scrollArea = document.getElementById("scrollableArea");
             if (scrollArea != null) {
                 this.props.width = scrollArea.offsetWidth;
-                console.error('bannerWidth', this.props.width);
+                //console.error('bannerWidth', this.props.width);
             }
         };
         scrollWidth();
