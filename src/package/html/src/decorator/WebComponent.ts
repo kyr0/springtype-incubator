@@ -110,7 +110,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
             constructor(...args: Array<any>) {
                 super();
                 if (config.renderStrategy === RenderStrategy.onPropsChanged) {
-                    this.props = new Proxy(this.props || {}, {
+                    this.props = new Proxy({}, {
                         set: (props: any, name: string | number | symbol, value: any): boolean => {
                             if (props[name] !== value) {
                                 props[name] = value;
@@ -271,7 +271,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                     }
 
                     const elements = _elements
-                        //filter functions that return void ;)
+                    //filter functions that return void ;)
                         .filter(el => !!el)
                         .map((el) => this.createNativeElement(el));
                     if (elements.length > 0) {
