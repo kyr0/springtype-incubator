@@ -18,7 +18,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf .cache",
-    "start": "npm run-script clean && parcel serve src/index.html",
+    "start": "npx parcel src/index.html --no-cache",
     "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url ."
   },
   "repository": {

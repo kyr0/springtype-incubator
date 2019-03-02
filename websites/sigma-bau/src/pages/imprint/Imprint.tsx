@@ -16,8 +16,8 @@ export class Imprint extends HTMLElement implements WebComponentLifecycle {
         super();
     }
 
-    init = () => {
-    };
+    init()  {
+    }
 
 
     render() {
