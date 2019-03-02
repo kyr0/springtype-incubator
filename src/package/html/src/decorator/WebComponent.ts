@@ -2,6 +2,11 @@ import {ApplicationContext, Component} from "../../../di";
 import {ApplicationEnvironment} from "../../../di/src/ApplicationContext";
 import {WebComponentReflector} from "./WebComponentReflector";
 import {IReactCreateElement} from "../ui/TSXRenderer";
+import {CSSDeclarationBlockGenerator} from "../../../css";
+import {CSSStyleSheetDeclaration} from "../../../css";
+import {hmrEntrypoint} from "../../../hmr";
+
+hmrEntrypoint(module);
 
 export const CHILD_ELEMENT = Symbol('CHILD_ELEMENT');
 const PROPS_OBJECT = Symbol('PROPS_OBJECT');
@@ -18,18 +23,17 @@ export enum RenderStrategy {
 
 export interface WebComponentConfig {
     tag: string;
-    isolate?: boolean;
-    isolateMode?: ShadowAttachMode;
+    shadow?: boolean;
+    shadowAttachMode?: ShadowAttachMode;
     observeAttributes?: Array<string>;
     renderStrategy?: RenderStrategy;
     template?: (view: any) => IReactCreateElement | IReactCreateElement[];
+    style?: (view: any) => CSSStyleSheetDeclaration;
 }
 
-export interface WebComponentLifecycle {
+export interface WebComponentLifecycle extends HTMLElement {
 
-    props?: any;
-
-    init(): void;
+    init?(): void;
 
     mount?(): void;
 
@@ -78,10 +82,12 @@ export interface IWebComponent<WC> extends Function {
     new(...args: any[]): WC;
 }
 
+
 // TODO: AOT: https://github.com/skatejs/skatejs/tree/master/packages/ssr
 export function WebComponent<WC extends IWebComponent<any>>(config: WebComponentConfig): any {
 
     if (!(<any>window).React) {
+
         // default config for @WebApp is missing, load it!
         import("./WebApp");
     }
@@ -100,7 +106,6 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
         // @Component by default
         const injectableWebComponent = Component(webComponent);
 
-
         // custom web component extends user implemented web component class
         // which extends HTMLElement
         let CustomWebComponent = class extends injectableWebComponent {
@@ -114,7 +119,6 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                         set: (props: any, name: string | number | symbol, value: any): boolean => {
                             if (props[name] !== value) {
                                 props[name] = value;
-
                                 const cancelled = !this.dispatchEvent(new CustomEvent(LifecycleEvent.BEFORE_PROPS_CHANGE, {
                                     detail: <PropsChangeEvent>{
                                         props,
@@ -130,20 +134,20 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                             return true;
                         }
                     });
+
                     Object.defineProperty(this, 'props', {
                         writable: false
                     });
-
 
                 } else {
 
                     this.observeAttributes = this.props || {};
                 }
 
-                if (config.isolate) {
+                if (config.shadow) {
 
                     this.attachShadow({
-                        mode: config.isolateMode ? config.isolateMode : ShadowAttachMode.OPEN
+                        mode: config.shadowAttachMode ? config.shadowAttachMode : ShadowAttachMode.OPEN
                     });
                 }
 
@@ -237,20 +241,35 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
             }
 
             render(initial: boolean): any {
+                this.init();
+
+                const elements = [];
+
+                // generate and inject styles
+                if (config.style) {
+
+                    elements.push(
+                        CSSDeclarationBlockGenerator.generate(config.style(this))
+                    );
+                }
 
                 // TODO: Event fire
                 console.log('re-render', this, this.props);
 
                 if (super.render) {
-                    return super.render();
+
+                    elements.push(super.render());
+
                 } else {
 
                     if (typeof config.template == 'function') {
+
                         // render template by default
-                        return config.template(this);
+                        elements.push(config.template(this));
                     }
-                    return ('');
+                    elements.push('');
                 }
+                return elements;
             }
 
             protected createNativeElement(reactCreateElement: IReactCreateElement): Element {
@@ -275,7 +294,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
                         .filter(el => !!el)
                         .map((el) => this.createNativeElement(el));
                     if (elements.length > 0) {
-                        if (config.isolate) {
+                        if (config.shadow) {
                             elements.map(el => this.shadowRoot.appendChild(el));
                         } else {
                             elements.map(el => this.appendChild(el));
@@ -293,7 +312,7 @@ export function WebComponent<WC extends IWebComponent<any>>(config: WebComponent
 
             protected reflow() {
 
-                if (config.isolate) {
+                if (config.shadow) {
                     this.shadowRoot.innerHTML = '';
                 } else {
                     this.innerHTML = '';
