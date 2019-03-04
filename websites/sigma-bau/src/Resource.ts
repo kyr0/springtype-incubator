@@ -10,12 +10,7 @@ import teamKranzmaier from "./assets/images/team/hans.jpg";
 //other
 import homeParallax from "./assets/images/page/home/parallax.webp";
 import homeSigma from "./assets/images/page/home/sigma.svg";
-import homePlanning from "./assets/images/page/home/planung.webp";
-import homeLivinghouse from "./assets/images/page/home/wohnhaus.webp";
-import homeLivinghouse1 from "./assets/images/page/home/mehrfamilienhauses.webp";
-import homeLivinghouse2 from "./assets/images/page/home/mehrfamilienhauses1.webp";
-import homeLivinghouse3 from "./assets/images/page/home/mehrfamilienhauses2.webp";
-//logo companies
+import homeWordcloud from "./assets/images/page/home/wordcloud.svg";
 import footerCompanyLechner from "./assets/images/footer/company/lechner.jpg"
 import footerCompanyMaiSmartHome from "./assets/images/footer/company/mai_smart_home.png"
 import footerCompanyNeulingerbau from "./assets/images/footer/company/neulinger_bau.png"
@@ -37,13 +32,7 @@ export const RESOURCES = {
         home: {
             parallax: homeParallax,
             sigma: homeSigma,
-            services: {
-                planning: homePlanning,
-                livinghouse: homeLivinghouse,
-                livinghouse1: homeLivinghouse1,
-                livinghouse2: homeLivinghouse2,
-                livinghouse3: homeLivinghouse3
-            }
+            wordcloud: homeWordcloud
         }
     },
     footer: {

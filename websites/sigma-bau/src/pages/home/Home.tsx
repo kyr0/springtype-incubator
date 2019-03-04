@@ -62,58 +62,12 @@ export class Home extends HTMLElement implements WebComponentLifecycle {
                     </div>
                     <div class="row">
                         <div class="col s12 offset-m2 m8 offset-l2 l8">
-                            <h5>Unsere Leistungen</h5>
-                            <div class="carousel carousel-slider">
-                                <div class="carousel-item">
-                                    <div class="heading">
-                                        <p>Wohn- und Geschäftshauses</p>
-                                        - München<br/>
-                                        - Leistungsphase 1 - 3<br/>
-                                        - Neuba
-                                    </div>
-                                    <img src={RESOURCES.page.home.services.planning} alt=""/>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="heading">
-                                        <p>Wohnhauses mit Einliegerwohnung</p>
-                                        - Mühldorf<br/>
-                                        - Leistungsphase 1 – 9<br/>
-                                        - Neubau
-                                    </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse} alt=""/>
-                                </div>
-                                <div className="carousel-item">
-                                    <div className="heading">
-                                        <p>Mehrfamilienhauses</p>
-                                        - Dorfen<br/>
-                                        - Leistungsphase 1 – 5<br/>
-                                        - Neubau
-                                    </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse1} alt=""/>
-                                </div>
-                                <div className="carousel-item">
-                                    <div className="heading">
-                                        <p>Mehrfamilienhauses</p>
-                                        - Dorfen<br/>
-                                        - Leistungsphase 1 – 5<br/>
-                                        - Neubau
-                                    </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse2} alt=""/>
-                                </div>
-                                <div className="carousel-item">
-                                    <div className="heading">
-                                        <p>Einfamilienhauss in Brettstapelbauweise KfW 40 Plus</p>
-                                        - Dorfen<br/>
-                                        - Leistungsphase 1 – 8<br/>
-                                        - Neubau
-                                    </div>
-                                    <img src={RESOURCES.page.home.services.livinghouse3} alt=""/>
-                                </div>
-                            </div>
+                            <h5>Tätigkeitsbereiche</h5>
+                            <img src={RESOURCES.page.home.wordcloud} width="100%"/>
                         </div>
                     </div>
                 </div>
-          ]
+            ]
         )
     }
 }

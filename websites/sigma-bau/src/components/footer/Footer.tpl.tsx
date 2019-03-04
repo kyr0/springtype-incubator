@@ -7,6 +7,23 @@ import {Imprint} from "../../pages/imprint/Imprint";
 import {Privacy} from "../../pages/privacy/Privacy";
 
 export default (view: Footer) => {
+    const scrollToTop = (scrollDuration: number) => {
+        setTimeout(() => {
+            const scrollHeight = window.scrollY,
+                scrollStep = Math.PI / (scrollDuration / 15),
+                cosParameter = scrollHeight / 2;
+            let scrollCount = 0,
+                scrollMargin,
+                scrollInterval = setInterval(function () {
+                    if (window.scrollY != 0) {
+                        scrollCount = scrollCount + 1;
+                        scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+                        window.scrollTo(0, (scrollHeight - scrollMargin));
+                    } else clearInterval(scrollInterval);
+                }, 15);
+        }, 150);
+    };
+
     return (
         [
             <div class="container">
@@ -27,22 +44,22 @@ export default (view: Footer) => {
                                     <b><i class="padding bottom">Johannes Kranzmaier</i></b>
                                     <br/>
                                     <a href="mailto:kranzmaier@sigma-bau.de" target="_top">
-                                        <i class="fas fa-envelope"/> kranzmaier@sigma-bau.de
+                                        <i class="fas fa-envelope" style="margin-right: 10px;"/>kranzmaier@sigma-bau.de
                                     </a>
                                     <br/>
                                     <a href="tel:+491794608414">
-                                        <i class="fas fa-phone"/> +49 (0)179 4608414
+                                        <i class="fas fa-phone" style="margin-right: 10px;"/>+49 (0)179 4608414
                                     </a>
                                 </div>
                                 <div class="margin top x3 contact">
                                     <b><i class="padding bottom">Wolfgang Reiter</i></b>
                                     <br/>
                                     <a href="mailto:reiter@sigma-bau.de" target="_top">
-                                        <i class="fas fa-envelope"/> reiter@sigma-bau.de
+                                        <i class="fas fa-envelope" style="margin-right: 10px;"/>reiter@sigma-bau.de
                                     </a>
                                     <br/>
                                     <a href="tel:+4915126611467">
-                                        <i class="fas fa-phone"/> +49 (0)151 26611467
+                                        <i class="fas fa-phone" style="margin-right: 10px;"/>+49 (0)151 26611467
                                     </a>
                                 </div>
                             </div>
@@ -73,11 +90,13 @@ export default (view: Footer) => {
                                 <div>
                                     <a class="click" onClick={() => {
                                         view.router.navigate(Privacy, {});
+                                        scrollToTop(1000);
                                     }}>Datenschutzerklärung</a>
                                 </div>
                                 <div>
                                     <a class="click" onClick={() => {
                                         view.router.navigate(Imprint, {});
+                                        scrollToTop(1000);
                                     }}>Impressum</a>
                                 </div>
                             </div>

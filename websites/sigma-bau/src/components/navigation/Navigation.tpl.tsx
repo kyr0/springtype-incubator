@@ -41,7 +41,7 @@ export default (view: Navigation) => {
                 </ul>
             </div>
         </nav>,
-        <ul id="mobile-menu" class="center hide-on-large-only">
+        <ul id="mobile-menu" class="center hide-on-large-only hide-on-extra-large-only">
             {
                 view.props.menus.map((menu) =>
                     <li class="menu-item">

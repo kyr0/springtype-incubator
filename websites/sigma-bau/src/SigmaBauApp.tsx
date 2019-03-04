@@ -13,6 +13,7 @@ import {Privacy} from "./pages/privacy/Privacy";
 @WebApp({
     routes: {
         '': Home,
+        '/*': Home,
         '/reference': Reference,
         '/about_us': About,
         '/imprint': Imprint,
@@ -22,31 +23,29 @@ import {Privacy} from "./pages/privacy/Privacy";
 @WebComponent({
         tag: 'sb-root',
         template: (view: SigmaBauApp) => (
-            <div>
-                <sb-navigation props={view.navProps}/>
-                <div >
-                    <router-outlet/>
-                </div>
+            [
+                <sb-navigation props={view.navProps}/>,
+                <router-outlet/>,
                 <sb-footer props={view.footerProps}/>
-            </div>
+            ]
         )
     }
 )
 export class SigmaBauApp extends HTMLElement {
-    footerProps: FooterProps ={name: 'SIGΣA plan + bau'  };
+    footerProps: FooterProps = {name: 'SIGΣA plan + bau'};
     navProps: NavigationProps = {
         menus: [
             {
-            displayName: 'Referenzen',
-            routeFunction: Reference
-        },/* {
+                displayName: 'Referenzen',
+                routeFunction: Reference
+            },/* {
             displayName: 'Leistungen',
             routeFunction: Service
         },*/
             {
-            displayName: 'Über Uns',
-            routeFunction: About
-        }]
+                displayName: 'Über Uns',
+                routeFunction: About
+            }]
     }
 
 

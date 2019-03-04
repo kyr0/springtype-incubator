@@ -80,14 +80,14 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                     <div className="row">
                         <div className="col s12 offset-l3 l6">
                             <p>Aus der Summe der zwei Einzelunternehmen "Bauplanung Reiter Wolfgang"
-                                und "kranzmaier planung" entwickelte sich das Unternehmen</p>
+                                und "kranzmaier planung" entwickelte sich das Unternehmen "SIGΣA plan + bau".</p>
                         </div>
                         <div className="col s12 offset-l3 l6">
                             <img class="logo_company" src={RESOURCES.logo.reiter}/>
                             <img class="logo_company" src={RESOURCES.logo.kranzmaier}/>
                         </div>
                         <div className="col s12 offset-l3 l6">
-                            <p>"SIGΣA plan + bau". Zusammen sind wir mittlerweile <b>45 Jahre</b> in der Baubranche
+                            <p>Zusammen sind wir mittlerweile <b>45 Jahre</b> in der Baubranche
                                 tätig. <br/> Als <i>gelernter Mauerer und Zimmerer</i> konnten wir weitreichend
                                 praktische Bauerfahrung
                                 sammeln.
@@ -101,7 +101,7 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                     </div>
                 </div>,
                 <div className="gray-background">
-                    <div className="container" style="">
+                    <div className="container">
                         <div className="team row">
                             <div className="col s12 padding bottom x3">
                                 <div className="member_header">Unser Team</div>
@@ -114,7 +114,52 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                             </div>
                         </div>
                     </div>
+                </div>,
+                <div className="container">
+                    <div className="team row">
+                        <div className="col s12 padding bottom x3">
+                            <div className="member_header">Ausstatung</div>
+                        </div>
+                        <div className="col s12">
+                            Das Büro ist mit modernster Hard- und Software ausgestattet.
+
+                            <ul>
+                                <li>
+                                    Controlling und Management
+                                </li>
+                                <li>
+                                    verschiedene CAD Programme
+                                </li>
+                                <li>
+                                    AVA Software
+                                </li>
+                                <li>
+                                    A-0-Plotter HP-Designjet
+                                </li>
+                                <li>
+                                    Großkopierer
+                                </li>
+                                <li>
+                                    Wärmebildkamera
+                                </li>
+                                <li>
+                                    Tachymeter
+                                </li>
+                                <li>
+                                    Nivelliergerät
+                                </li>
+                                <li>
+                                    Baufeuchtemessgerät
+                                </li>
+                                <li>
+                                    3D-Drucker
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
+
             ]
         )
     }
