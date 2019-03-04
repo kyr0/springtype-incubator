@@ -7,21 +7,15 @@ import {Imprint} from "../../pages/imprint/Imprint";
 import {Privacy} from "../../pages/privacy/Privacy";
 
 export default (view: Footer) => {
-    const scrollToTop = (scrollDuration: number) => {
+    const scrollToTop = () => {
         setTimeout(() => {
-            const scrollHeight = window.scrollY,
-                scrollStep = Math.PI / (scrollDuration / 15),
-                cosParameter = scrollHeight / 2;
-            let scrollCount = 0,
-                scrollMargin,
-                scrollInterval = setInterval(function () {
-                    if (window.scrollY != 0) {
-                        scrollCount = scrollCount + 1;
-                        scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
-                        window.scrollTo(0, (scrollHeight - scrollMargin));
-                    } else clearInterval(scrollInterval);
-                }, 15);
-        }, 150);
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            },
+            250);
+
     };
 
     return (
@@ -71,7 +65,7 @@ export default (view: Footer) => {
                                 <iframe class="map"
                                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5318.161555992948!2d12.23221!3d48.20506!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775fa3db75b19c9%3A0xd7d00ba07af7f60a!2sOberthalham+2%2C+84419+Obertaufkirchen!5e0!3m2!1sde!2sde!4v1549129894137"
                                         frameBorder="0" style="border:0" allowFullScreen/>
-                                SigmaBau GbR <br/>
+                                {view.props.name} GbR<br/>
                                 Oberthalham 2 <br/>
                                 84419 Obertaufkirchen
                             </div>
@@ -90,13 +84,13 @@ export default (view: Footer) => {
                                 <div>
                                     <a class="click" onClick={() => {
                                         view.router.navigate(Privacy, {});
-                                        scrollToTop(1000);
+                                        scrollToTop();
                                     }}>Datenschutzerklärung</a>
                                 </div>
                                 <div>
                                     <a class="click" onClick={() => {
                                         view.router.navigate(Imprint, {});
-                                        scrollToTop(1000);
+                                        scrollToTop();
                                     }}>Impressum</a>
                                 </div>
                             </div>
