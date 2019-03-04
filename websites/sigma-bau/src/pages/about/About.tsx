@@ -78,6 +78,10 @@ export class About extends HTMLElement implements WebComponentLifecycle {
             [
                 <div className="container">
                     <div className="row">
+                        <div className="col s12 padding bottom x3">
+                            <h3>Über Uns - Entstehung</h3>
+                        </div>
+
                         <div className="col s12 offset-l3 l6">
                             <p>Aus der Summe der zwei Einzelunternehmen "Bauplanung Reiter Wolfgang"
                                 und "kranzmaier planung" entwickelte sich das Unternehmen "SIGΣA plan + bau".</p>
@@ -104,7 +108,7 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                     <div className="container">
                         <div className="team row">
                             <div className="col s12 padding bottom x3">
-                                <div className="member_header">Unser Team</div>
+                                <h3>Unser Team</h3>
                             </div>
                             <div className="col s12 m6 offset-l2 l4">
                                 <sb-member props={hans}/>
@@ -118,11 +122,10 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 <div className="container">
                     <div className="team row">
                         <div className="col s12 padding bottom x3">
-                            <div className="member_header">Ausstatung</div>
+                            <h3>Ausstatung</h3>
                         </div>
                         <div className="col s12">
                             Das Büro ist mit modernster Hard- und Software ausgestattet.
-
                             <ul>
                                 <li>
                                     Controlling und Management

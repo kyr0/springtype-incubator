@@ -8,9 +8,20 @@ import logoKranzmaier from "./assets/images/logo/kranzmaier.jpg";
 import teamReiter from "./assets/images/team/reiter.jpg";
 import teamKranzmaier from "./assets/images/team/hans.jpg";
 //other
+//home
 import homeParallax from "./assets/images/page/home/parallax.webp";
 import homeSigma from "./assets/images/page/home/sigma.svg";
 import homeWordcloud from "./assets/images/page/home/wordcloud.svg";
+//theme
+import theme3dPrint from "./assets/images/page/home/theme/3dprint.svg"
+import themeReady from "./assets/images/page/home/theme/ready.svg"
+import themePlanning from "./assets/images/page/home/theme/planing.svg"
+import themeProjectManager from "./assets/images/page/home/theme/projectmanager.svg"
+import themeRenovation from "./assets/images/page/home/theme/renovation.svg"
+import themeFireProtection from "./assets/images/page/home/theme/fireprotection.svg"
+import themeHeatCalculation from "./assets/images/page/home/theme/heatcalculation.svg"
+import themeValuation from "./assets/images/page/home/theme/valuations.svg"
+//footer
 import footerCompanyLechner from "./assets/images/footer/company/lechner.jpg"
 import footerCompanyMaiSmartHome from "./assets/images/footer/company/mai_smart_home.png"
 import footerCompanyNeulingerbau from "./assets/images/footer/company/neulinger_bau.png"
@@ -32,7 +43,18 @@ export const RESOURCES = {
         home: {
             parallax: homeParallax,
             sigma: homeSigma,
-            wordcloud: homeWordcloud
+            wordcloud: homeWordcloud,
+            theme: [
+                theme3dPrint,
+                themeReady,
+                themePlanning,
+                themeProjectManager,
+                themeRenovation,
+                themeFireProtection,
+                themeHeatCalculation,
+                themeValuation
+            ]
+
         }
     },
     footer: {
@@ -45,15 +67,18 @@ export const RESOURCES = {
             {
                 src: footerCompanyMaiSmartHome,
                 name: "MaiSmartHome GmbH",
-                url: "https://mai-smart-home.de/"},
+                url: "https://mai-smart-home.de/"
+            },
             {
                 src: footerCompanyNeulingerbau,
                 name: "Neulinger Bau",
-                url: "https://www.bau-neulinger.de/"},
+                url: "https://www.bau-neulinger.de/"
+            },
             {
                 src: footerCompanyZimmereiRachl,
                 name: "Zimmerei & Holzbau Rachl GbR",
-                url: "http://zimmerei-rachl.de/"}
+                url: "http://zimmerei-rachl.de/"
+            }
         ]
     }
 
