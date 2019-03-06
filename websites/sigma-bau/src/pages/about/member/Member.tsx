@@ -32,7 +32,7 @@ export class Member extends HTMLElement implements WebComponentLifecycle {
                 }
             </ul>,
             <ul class="cv space-top-small">
-                <li><a href={`m̀ailto:${this.props.email}`} target="_top">
+                <li><a href={`mailto:${this.props.email}`} target="_top">
                     <i className="fas fa-envelope" style="margin-right: 10px;"/>{this.props.email}
                 </a></li>
             </ul>

@@ -7,6 +7,3 @@ export default (view: BannerImg) =>
          src={view.props.src}
          alt={view.props.name}
     />
-
-
-

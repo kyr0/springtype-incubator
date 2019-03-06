@@ -79,12 +79,13 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 <div className="container">
                     <div className="row">
                         <div className="col s12 padding bottom x3">
-                            <h3>Über Uns - Entstehung</h3>
+                            <h3>Über Uns</h3>
+                            <h4>Entstehung</h4>
                         </div>
 
                         <div className="col s12 offset-l3 l6">
-                            <p>Aus der Summe der zwei Einzelunternehmen "Bauplanung Reiter Wolfgang"
-                                und "kranzmaier planung" entwickelte sich das Unternehmen "SIGΣA plan + bau".</p>
+                            <p>Aus der Summe der zwei Einzelunternehmen "<b>Bauplanung Reiter Wolfgang</b>"
+                                und "<b>kranzmaier planung</b>" entwickelte sich das Unternehmen "<b>SIGΣA plan + bau</b>".</p>
                         </div>
                         <div className="col s12 offset-l3 l6">
                             <img class="logo_company" src={RESOURCES.logo.reiter}/>
@@ -100,7 +101,6 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                                 der Bau- und Planungsbranche, für unsere Kunden sowie Geschäftspartner nutzen.
                             </p>
                             <img className="logo_company x2" src={RESOURCES.logo.normal}/>
-
                         </div>
                     </div>
                 </div>,
@@ -122,41 +122,22 @@ export class About extends HTMLElement implements WebComponentLifecycle {
                 <div className="container">
                     <div className="team row">
                         <div className="col s12 padding bottom x3">
-                            <h3>Ausstatung</h3>
+                            <h3>Ausstattung</h3>
                         </div>
                         <div className="col s12">
-                            Das Büro ist mit modernster Hard- und Software ausgestattet.
+                            <p>Das Büro ist mit modernster Hard- und Software ausgestattet.</p>
                             <ul>
-                                <li>
-                                    Controlling und Management
-                                </li>
-                                <li>
-                                    verschiedene CAD Programme
-                                </li>
-                                <li>
-                                    AVA Software
-                                </li>
-                                <li>
-                                    A-0-Plotter HP-Designjet
-                                </li>
-                                <li>
-                                    Großkopierer
-                                </li>
-                                <li>
-                                    Wärmebildkamera
-                                </li>
-                                <li>
-                                    Tachymeter
-                                </li>
-                                <li>
-                                    Nivelliergerät
-                                </li>
-                                <li>
-                                    Baufeuchtemessgerät
-                                </li>
-                                <li>
-                                    3D-Drucker
-                                </li>
+                                {['Controlling und Management',
+                                    'Verschiedene CAD Programme',
+                                    'AVA Software',
+                                    'A0-Plotter HP-Designjet',
+                                    'Großkopierer',
+                                    'Wärmebildkamera',
+                                    'Tachymeter',
+                                    'Nivelliergerät',
+                                    'Baufeuchtemessgerät',
+                                    '3D-Drucker'].map((v) => <li><p>{v}</p>
+                                </li>)}
                             </ul>
                         </div>
 

@@ -15,7 +15,6 @@ export default (view: Footer) => {
                 })
             },
             250);
-
     };
 
     return (
@@ -32,7 +31,6 @@ export default (view: Footer) => {
                     <div class="row">
                         <div class="col l6 s12">
                             <img id="logo" src={RESOURCES.logo.small} alt=""/>
-                            <hr class="w20"/>
                             <div class="left-side">
                                 <div class="contact">
                                     <b><i class="padding bottom">Johannes Kranzmaier</i></b>
@@ -45,6 +43,7 @@ export default (view: Footer) => {
                                         <i class="fas fa-phone" style="margin-right: 10px;"/>+49 (0)179 4608414
                                     </a>
                                 </div>
+                                <hr class="w20"/>
                                 <div class="margin top x3 contact">
                                     <b><i class="padding bottom">Wolfgang Reiter</i></b>
                                     <br/>
@@ -57,9 +56,8 @@ export default (view: Footer) => {
                                     </a>
                                 </div>
                             </div>
-                            <hr class="w20"/>
                         </div>
-                        <div class="col offset-l1 l4 s12">
+                        <div class="col offset-l1 l4 s12 margin-top">
                             <div class="box padding x2 bottom">
                                 <h5 class="padding x2 bottom"><b>Standort</b></h5>
                                 <iframe class="map"
@@ -76,22 +74,20 @@ export default (view: Footer) => {
                     <div class="container">
                         <div class="row">
                             <div class="col s12 m6">
-                                <div>
-                                    © {new Date().getFullYear()} Copyright {view.props.name}
-                                </div>
+                                © {new Date().getFullYear()} Copyright {view.props.name}
                             </div>
                             <div class="col s12 m6">
                                 <div>
-                                    <a class="click" onClick={() => {
-                                        view.router.navigate(Privacy, {});
-                                        scrollToTop();
-                                    }}>Datenschutzerklärung</a>
-                                </div>
+                                <a class="click" onClick={() => {
+                                    view.router.navigate(Privacy, {});
+                                    scrollToTop();
+                                }}>Datenschutzerklärung</a>
+                            </div>
                                 <div>
-                                    <a class="click" onClick={() => {
-                                        view.router.navigate(Imprint, {});
-                                        scrollToTop();
-                                    }}>Impressum</a>
+                                <a class="click" onClick={() => {
+                                    view.router.navigate(Imprint, {});
+                                    scrollToTop();
+                                }}>Impressum</a>
                                 </div>
                             </div>
                         </div>

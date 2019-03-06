@@ -26,14 +26,11 @@ export class Banner extends HTMLElement implements WebComponentLifecycle {
 
     mountChildren = () => {
         const scrollWidth = () => {
-            const scrollArea = document.getElementById("scrollableArea");
-            if (scrollArea != null) {
-                this.props.width = scrollArea.offsetWidth;
-                //console.error('bannerWidth', this.props.width);
-            }
+            this.props.width = this.offsetWidth;
         };
+        window.addEventListener('resize', scrollWidth);
+        //initial width
         scrollWidth();
-        window.addEventListener('resize', scrollWidth)
 
     }
 

@@ -25,7 +25,7 @@ export class Reference extends HTMLElement implements WebComponentLifecycle {
     render() {
 
         return <div class="container">
-            REVERENCE
+            REFERENZEN
         </div>
     }
 }

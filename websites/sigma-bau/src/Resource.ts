@@ -11,7 +11,7 @@ import teamKranzmaier from "./assets/images/team/hans.jpg";
 //home
 import homeParallax from "./assets/images/page/home/parallax.webp";
 import homeSigma from "./assets/images/page/home/sigma.svg";
-import homeWordcloud from "./assets/images/page/home/wordcloud.svg";
+import homeHouses from "./assets/images/page/home/houses.webp";
 //theme
 import theme3dPrint from "./assets/images/page/home/theme/3dprint.svg"
 import themeReady from "./assets/images/page/home/theme/ready.svg"
@@ -43,7 +43,7 @@ export const RESOURCES = {
         home: {
             parallax: homeParallax,
             sigma: homeSigma,
-            wordcloud: homeWordcloud,
+            houses: homeHouses,
             theme: [
                 theme3dPrint,
                 themeReady,

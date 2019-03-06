@@ -21,6 +21,7 @@
 .margin.top.x2 {
   margin-top: 10px;
 }
+
 .margin.top.x3 {
   margin-top: 15px;
 }
@@ -52,31 +53,40 @@
 .w50 {
   width: 50%;
 }
+
 .w20 {
   width: 20%;
 }
 
 hr {
-  color: $sigma-color;
+  color: #846a50;
 }
 
 .box {
-  border: solid 1px $sigma-color;
+  border: double 4px #846a50;
 }
 
 .click {
   cursor: pointer;
 }
-a.company > img{
+
+a.company > img {
   margin: 10px 30px;
   height: 50px;
 }
-.scrollWrapper{
+
+.scrollWrapper {
   background-color: white;
 }
-.v-space-bottom-20{
+
+.v-space-bottom-20 {
   margin-bottom: 20px !important;
 }
-.no.margin{
+
+.no.margin {
   margin: 0;
+}
+
+.margin-top {
+  margin-top: 15px;
 }

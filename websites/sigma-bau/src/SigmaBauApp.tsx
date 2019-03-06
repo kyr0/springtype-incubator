@@ -4,7 +4,7 @@ import "./components/navigation/Navigation";
 import "./components/footer/Footer";
 import {About} from "./pages/about/About";
 import {WebComponent} from "../../../src/package/html";
-import {NavigationProps} from "./components/navigation/Navigation";
+import {Menu, NavigationProps} from "./components/navigation/Navigation";
 import {Reference} from "./pages/references/Reference";
 import {FooterProps} from "./components/footer/Footer";
 import {Imprint} from "./pages/imprint/Imprint";
@@ -34,18 +34,27 @@ import {Privacy} from "./pages/privacy/Privacy";
 export class SigmaBauApp extends HTMLElement {
     footerProps: FooterProps = {name: 'SIGΣA plan + bau'};
     navProps: NavigationProps = {
-        menus: [
-            {
-                displayName: 'Referenzen',
-                routeFunction: Reference
-            },/* {
-            displayName: 'Leistungen',
-            routeFunction: Service
-        },*/
-            {
-                displayName: 'Über Uns',
-                routeFunction: About
-            }]
+        menus: ((): Menu[] => {
+                let menu: Menu[] = [];
+                if (localStorage && localStorage.getItem('FEATURE_REFERENCE')) {
+                    menu.push(
+                        {
+                            displayName: 'Referenzen',
+                            routeFunction: Reference
+                        },
+                    );
+                }
+
+                menu.push({
+                    displayName: 'Über Uns',
+                    routeFunction: About
+                });
+
+                return menu;
+            }
+        )()
+
+
     }
 
 

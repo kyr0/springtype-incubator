@@ -37,7 +37,7 @@ body{
 @import "../node_modules/materialize-css/sass/components/tabs";
 @import "../node_modules/materialize-css/sass/components/tooltip";
 @import "../node_modules/materialize-css/sass/components/buttons";
-@import "../node_modules/materialize-css/sass/components/dropdown";
+@import "../node_modules/materialize-css/sass/components/dropdown"; 
 @import "../node_modules/materialize-css/sass/components/waves";
 @import "../node_modules/materialize-css/sass/components/modal";
 @import "../node_modules/materialize-css/sass/components/collapsible";
@@ -58,8 +58,11 @@ body{
   stroke: $sigma-color;
 }
 a {
-  color: $sigma-color;
+  color: #846a50;
 }
-.container, .row .col, div{
-  //border: solid black 1px;
+/*.container, .row .col, div{
+ border: solid black 1px !important;
+}*/
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3 !important;
 }
