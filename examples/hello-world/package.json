@@ -6,8 +6,7 @@
     "@webcomponents/webcomponentsjs": "^2.2.1",
     "cross-env": "^5.2.0",
     "materialize-css": "^1.0.0-rc.2",
-    "parcel-bundler": "^1.10.3",
-    "sass": "^1.15.1"
+    "parcel-bundler": "^1.10.3"
   },
   "scripts": {
     "test": "ts-node test/service/TodoService.spec.ts",
@@ -24,6 +23,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "parcel": "^1.10.3",
+    "sass": "^1.17.2",
     "ts-jest": "^23.10.5",
     "typescript": "^3.1.6"
   },
