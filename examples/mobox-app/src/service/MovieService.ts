@@ -1,12 +1,5 @@
 import {Component} from "../../../../src/package/di";
-import {MovieDto} from "../state/MovieState";
-
-interface MovieResponse {
-    page: number;
-    totalResults: number;
-    totalPages: number;
-    content: Array<MovieDto>;
-}
+import {MovieResourcesApi, PageDtoMovieDto} from "api/src";
 
 @Component
 export class MovieService {
@@ -14,17 +7,13 @@ export class MovieService {
     constructor() {
     }
 
-    async getPage(page: number) {
-
+    public async getPage(page: number, pageSize: number): Promise<PageDtoMovieDto | undefined> {
         try {
-            const response: Response = await fetch(`/api/v1/movie?page=${page}`);
-            const movieResponse = <MovieResponse> await response.json();
-
-            console.log(movieResponse.content);
-            return movieResponse.content;
-
+            return new MovieResourcesApi().listMoviesUsingGET(
+                page,
+                pageSize
+            );
         } catch (e) {
-
             console.error('error', e)
         }
     }

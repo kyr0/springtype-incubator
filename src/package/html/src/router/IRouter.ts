@@ -10,7 +10,7 @@ export interface WebModuleRouteDefinition {
 }
 
 export interface WebModuleRoutes {
-    [route: string]: WebModuleRouteDefinition|IReactCreateElement;
+    [route: string]: WebModuleRouteDefinition | IReactCreateElement | IReactCreateElement[];
 }
 
 export interface TokenizedWebModuleRoutes {
@@ -26,10 +26,16 @@ export interface LocationChangeDecision {
 
 export interface IRouter {
     getParams(): any;
+
     registerRoutes(routes: WebModuleRoutes): void;
+
     onLocationChange(): Promise<void>;
+
     disable(): void;
+
     enable(): void;
+
     navigate(path: string, params: any): void;
+
     registerRouterOutlet(routerOutlet: RouterOutlet): void;
 }

@@ -1,14 +1,21 @@
 import {Movie} from "./Movie";
+import {MovieDto} from "api/src";
 
 export default (component: Movie) => {
-    return (component.props.movies ||[]).map(movie =>
-        <div class="container">
-            {
-                <div>
-                    <h2>{movie.title}</h2>
-                    <img src={movie.posterSmall}/>
-                </div>
-            }
+    let movies: Array<MovieDto> = [];
+    if (component.props.response) {
+        movies = component.props.response.content;
+    }
+    return <div class="container">
+
+        <div class="row">
+            <div class="col lg12">
+                <h3 class="header">Mobox-App</h3>
+            </div>
+            {movies.map(movie =>
+                <div class="col lg4">
+                    <img class="movie-img" src={movie.posterSmall}/>
+                </div>)}
         </div>
-    )
+    </div>
 }
