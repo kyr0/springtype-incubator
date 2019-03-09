@@ -25,7 +25,7 @@
 //@import "../node_modules/materialize-css/sass/components/buttons";
 //@import "../node_modules/materialize-css/sass/components/dropdown";
 @import "../node_modules/materialize-css/sass/components/waves";
-//@import "../node_modules/materialize-css/sass/components/modal";
+@import "../node_modules/materialize-css/sass/components/modal";
 //@import "../node_modules/materialize-css/sass/components/collapsible";
 //@import "../node_modules/materialize-css/sass/components/chips";
 //@import "../node_modules/materialize-css/sass/components/materialbox";
@@ -43,6 +43,6 @@
 @import "components/nav/Navigation";
 @import "components/movie/Movie";
 
-div, .container {
+.col{
  // border: solid black 1px
 }

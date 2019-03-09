@@ -16,7 +16,7 @@
 import * as url from "url";
 import { Configuration } from "./configuration";
 
-const BASE_PATH = "https://localhost".replace(/\/+$/, "");
+const BASE_PATH = "http://localhost".replace(/\/+$/, "");
 const portableFetch = fetch;
 /**
  *
@@ -1091,8 +1091,10 @@ export const MovieResourcesApiFp = function(configuration?: Configuration) {
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
+                        console.error("success ", response);
                         return response;
                     } else {
+                        console.error("error ", response);
                         throw response;
                     }
                 });

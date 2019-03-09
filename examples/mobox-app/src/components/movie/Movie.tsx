@@ -4,7 +4,7 @@ import {MovieService} from "../../service/MovieService";
 import {PageDtoMovieDto} from "api/src";
 
 interface PropsMovies {
-    response: PageDtoMovieDto;
+    response: PageDtoMovieDto
     pageSize: number;
     page: number;
 }
@@ -14,6 +14,9 @@ interface PropsMovies {
     template
 })
 export class Movie extends HTMLElement implements WebComponentLifecycle {
+
+
+    public response!: PageDtoMovieDto | undefined;
 
 
     constructor(
@@ -29,9 +32,16 @@ export class Movie extends HTMLElement implements WebComponentLifecycle {
     }
 
     async onPageLoad() {
+        if (this.props.response && this.props.response.page == this.props.page) {
+            return;
+        }
         const response = await this.movieService.getPage(this.props.page, this.props.pageSize);
         if (response) {
             this.props.response = response;
         }
+    }
+
+    mountChildren(): void {
+        M.Modal.init(this.querySelectorAll('.modal'));
     }
 }

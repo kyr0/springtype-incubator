@@ -128,8 +128,9 @@ export class TSXRenderer implements IRenderer {
     };
 
     render = (reactCreateElement: IReactCreateElement, level = 0, namespaces: Namespace[] = []): Element => {
+        const name = typeof reactCreateElement === 'string' ? reactCreateElement : reactCreateElement.name;
+
         //this.logger.trace('render', reactCreateElement, level, namespaces);
-        const name = reactCreateElement.name;
         const attributes = reactCreateElement.attributes || {};
         const children = reactCreateElement.children || [];
 
