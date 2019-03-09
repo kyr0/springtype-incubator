@@ -14,7 +14,7 @@ export default (component: Movie) => {
             </div>
             <div class="row">
                 <div class="col s12">
-                    <h3 class="header">Mobox-App</h3>
+                    <h3 class="header">Movies</h3>
                 </div>
                 {movies.map(movie =>
                     <div class="col s12 m6 l4 movie" style={`height: ${component.props.height}px`}>
