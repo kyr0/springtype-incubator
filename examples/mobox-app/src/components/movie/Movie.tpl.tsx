@@ -7,13 +7,16 @@ export default (component: Movie) => {
         movies = component.props.response.content;
     }
     return [<div class="container">
-
+        <div class="row width">
+            <div class="col s12 m6 l3 rowWidth">
+            </div>
+        </div>
         <div class="row">
             <div class="col s12">
                 <h3 class="header">Mobox-App</h3>
             </div>
             {movies.map(movie =>
-                <div class="col s12 m6 l3">
+                <div class="col s12 m6 l3" style={`height: ${component.props.height}px`}>
                     <div class="wrapper waves-effect waves-light btn modal-trigger"
                          data-target={'modal-movie-' + movie.id}>
                         <img class="movie-img "
