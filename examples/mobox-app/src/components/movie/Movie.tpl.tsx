@@ -9,7 +9,7 @@ export default (component: Movie) => {
     return [
         <div class="container">
             <div class="row width">
-                <div class="col s12 m6 l3 rowWidth">
+                <div class="col s12 m6 l4 rowWidth">
                 </div>
             </div>
             <div class="row">
@@ -17,7 +17,7 @@ export default (component: Movie) => {
                     <h3 class="header">Mobox-App</h3>
                 </div>
                 {movies.map(movie =>
-                    <div class="col s12 m6 l3 movie" style={`height: ${component.props.height}px`}>
+                    <div class="col s12 m6 l4 movie" style={`height: ${component.props.height}px`}>
                         <div class="wrapper waves-effect waves-light btn modal-trigger"
                              data-target={'modal-movie-' + movie.id}>
                             <img class="movie-img "
