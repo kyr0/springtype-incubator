@@ -18,6 +18,7 @@ import { Configuration } from "./configuration";
 
 const BASE_PATH = "http://localhost".replace(/\/+$/, "");
 const portableFetch = fetch;
+
 /**
  *
  * @export
@@ -172,6 +173,26 @@ export namespace AccountDto {
         ADMIN = <any> 'ADMIN',
         USER = <any> 'USER'
     }
+}
+
+/**
+ * 
+ * @export
+ * @interface GenreDto
+ */
+export interface GenreDto {
+    /**
+     * 
+     * @type {number}
+     * @memberof GenreDto
+     */
+    id: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GenreDto
+     */
+    name: string;
 }
 
 /**
@@ -696,6 +717,44 @@ export const AccountResourcesApiFetchParamCreator = function (configuration?: Co
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary setAccountStatus
+         * @param {boolean} active active
+         * @param {number} id id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        setAccountStatusUsingPOST(active: boolean, id: number, options: any = {}): FetchArgs {
+            // verify required parameter 'active' is not null or undefined
+            if (active === null || active === undefined) {
+                throw new RequiredError('active','Required parameter active was null or undefined when calling setAccountStatusUsingPOST.');
+            }
+            // verify required parameter 'id' is not null or undefined
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling setAccountStatusUsingPOST.');
+            }
+            const localVarPath = `/api/v1/account/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (active !== undefined) {
+                localVarQueryParameter['active'] = active;
+            }
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -760,6 +819,26 @@ export const AccountResourcesApiFp = function(configuration?: Configuration) {
                 });
             };
         },
+        /**
+         * 
+         * @summary setAccountStatus
+         * @param {boolean} active active
+         * @param {number} id id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        setAccountStatusUsingPOST(active: boolean, id: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Response> {
+            const localVarFetchArgs = AccountResourcesApiFetchParamCreator(configuration).setAccountStatusUsingPOST(active, id, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response;
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
     }
 };
 
@@ -796,6 +875,17 @@ export const AccountResourcesApiFactory = function (configuration?: Configuratio
          */
         listAccountsUsingGET(options?: any) {
             return AccountResourcesApiFp(configuration).listAccountsUsingGET(options)(fetch, basePath);
+        },
+        /**
+         * 
+         * @summary setAccountStatus
+         * @param {boolean} active active
+         * @param {number} id id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        setAccountStatusUsingPOST(active: boolean, id: number, options?: any) {
+            return AccountResourcesApiFp(configuration).setAccountStatusUsingPOST(active, id, options)(fetch, basePath);
         },
     };
 };
@@ -839,6 +929,19 @@ export class AccountResourcesApi extends BaseAPI {
      */
     public listAccountsUsingGET(options?: any) {
         return AccountResourcesApiFp(this.configuration).listAccountsUsingGET(options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * 
+     * @summary setAccountStatus
+     * @param {boolean} active active
+     * @param {number} id id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountResourcesApi
+     */
+    public setAccountStatusUsingPOST(active: boolean, id: number, options?: any) {
+        return AccountResourcesApiFp(this.configuration).setAccountStatusUsingPOST(active, id, options)(this.fetch, this.basePath);
     }
 
 }
@@ -887,7 +990,7 @@ export const GenreResourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listGenresUsingGET(options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Array<string>> {
+        listGenresUsingGET(options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Array<GenreDto>> {
             const localVarFetchArgs = GenreResourcesApiFetchParamCreator(configuration).listGenresUsingGET(options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
@@ -1030,6 +1133,7 @@ export const MovieResourcesApiFetchParamCreator = function (configuration?: Conf
         /**
          * 
          * @summary listMovies
+         * @param {number} [genreId] genreId
          * @param {number} [page] page
          * @param {number} [pageSize] pageSize
          * @param {string} [sortBy] sortBy
@@ -1037,12 +1141,16 @@ export const MovieResourcesApiFetchParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMoviesUsingGET(page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options: any = {}): FetchArgs {
+        listMoviesUsingGET(genreId?: number, page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options: any = {}): FetchArgs {
             const localVarPath = `/api/v1/movie`;
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (genreId !== undefined) {
+                localVarQueryParameter['genreId'] = genreId;
+            }
 
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -1091,10 +1199,8 @@ export const MovieResourcesApiFp = function(configuration?: Configuration) {
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
-                        console.error("success ", response);
                         return response;
                     } else {
-                        console.error("error ", response);
                         throw response;
                     }
                 });
@@ -1140,6 +1246,7 @@ export const MovieResourcesApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary listMovies
+         * @param {number} [genreId] genreId
          * @param {number} [page] page
          * @param {number} [pageSize] pageSize
          * @param {string} [sortBy] sortBy
@@ -1147,8 +1254,8 @@ export const MovieResourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMoviesUsingGET(page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PageDtoMovieDto> {
-            const localVarFetchArgs = MovieResourcesApiFetchParamCreator(configuration).listMoviesUsingGET(page, pageSize, sortBy, sortType, options);
+        listMoviesUsingGET(genreId?: number, page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PageDtoMovieDto> {
+            const localVarFetchArgs = MovieResourcesApiFetchParamCreator(configuration).listMoviesUsingGET(genreId, page, pageSize, sortBy, sortType, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -1200,6 +1307,7 @@ export const MovieResourcesApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @summary listMovies
+         * @param {number} [genreId] genreId
          * @param {number} [page] page
          * @param {number} [pageSize] pageSize
          * @param {string} [sortBy] sortBy
@@ -1207,8 +1315,8 @@ export const MovieResourcesApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMoviesUsingGET(page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any) {
-            return MovieResourcesApiFp(configuration).listMoviesUsingGET(page, pageSize, sortBy, sortType, options)(fetch, basePath);
+        listMoviesUsingGET(genreId?: number, page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any) {
+            return MovieResourcesApiFp(configuration).listMoviesUsingGET(genreId, page, pageSize, sortBy, sortType, options)(fetch, basePath);
         },
     };
 };
@@ -1258,6 +1366,7 @@ export class MovieResourcesApi extends BaseAPI {
     /**
      * 
      * @summary listMovies
+     * @param {number} [genreId] genreId
      * @param {number} [page] page
      * @param {number} [pageSize] pageSize
      * @param {string} [sortBy] sortBy
@@ -1266,8 +1375,8 @@ export class MovieResourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MovieResourcesApi
      */
-    public listMoviesUsingGET(page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any) {
-        return MovieResourcesApiFp(this.configuration).listMoviesUsingGET(page, pageSize, sortBy, sortType, options)(this.fetch, this.basePath);
+    public listMoviesUsingGET(genreId?: number, page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any) {
+        return MovieResourcesApiFp(this.configuration).listMoviesUsingGET(genreId, page, pageSize, sortBy, sortType, options)(this.fetch, this.basePath);
     }
 
 }

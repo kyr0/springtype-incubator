@@ -10,6 +10,7 @@ export class MovieService {
     public async getPage(page: number, pageSize: number): Promise<PageDtoMovieDto | undefined> {
         try {
             return new MovieResourcesApi().listMoviesUsingGET(
+                undefined,
                 page,
                 pageSize
             );
