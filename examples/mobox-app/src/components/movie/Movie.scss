@@ -7,13 +7,18 @@
   margin: 0 !important;
   padding: 0 !important;
 }
-
+.col.movie{
+  padding: 0px;
+}
 .header{
   text-align: center;
   color: red;
 }
 .wrapper{
   position: relative;
+  height: 100%;
+  width: 100%;
+  border: solid 1px white;
 }
 
 .info {
@@ -24,5 +29,5 @@
   width: 100%;
   color: white;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.71);
+  background: rgb(0, 0, 0);
 }

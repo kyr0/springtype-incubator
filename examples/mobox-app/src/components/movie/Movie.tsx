@@ -39,17 +39,16 @@ export class Movie extends HTMLElement implements WebComponentLifecycle {
     }
 
     mountChildren(): void {
-
         const resize = () => {
             const el: any = this.getElementsByClassName("rowWidth")[0];
             if (el) {
-
                 // normal image 2000 x 3000px
                 this.props.height = el.offsetWidth / 2 * 3;
+console.error("resize",this.props.height);
             }
-
         };
-
+        resize();
+        window.addEventListener('resize', resize)
 
 
         M.Modal.init(this.querySelectorAll('.modal'));
