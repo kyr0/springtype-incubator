@@ -680,7 +680,7 @@ export const AccountResourcesApiFetchParamCreator = function (configuration?: Co
         getAccountUsingGET(options: any = {}): FetchArgs {
             const localVarPath = `/api/v1/account/me`;
             const localVarUrlObj = url.parse(localVarPath, true);
-            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
+            const localVarRequestOptions = Object.assign({ method: 'GET', redirect: 'manual' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -791,12 +791,15 @@ export const AccountResourcesApiFp = function(configuration?: Configuration) {
          */
         getAccountUsingGET(options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<AccountDto> {
             const localVarFetchArgs = AccountResourcesApiFetchParamCreator(configuration).getAccountUsingGET(options);
+            console.log(localVarFetchArgs.options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
+                        console.log('success');
                         return response.json();
                     } else {
-                        throw response;
+                        console.log('failed');
+                        window.location.href = 'http://localhost/sso'
                     }
                 });
             };
@@ -1257,10 +1260,14 @@ export const MovieResourcesApiFp = function(configuration?: Configuration) {
         listMoviesUsingGET(genreId?: number, page?: number, pageSize?: number, sortBy?: string, sortType?: 'ASC' | 'DESC', options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PageDtoMovieDto> {
             const localVarFetchArgs = MovieResourcesApiFetchParamCreator(configuration).listMoviesUsingGET(genreId, page, pageSize, sortBy, sortType, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                console.log("fetch movies");
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
+                        console.log('get responsek');
                         return response.json();
                     } else {
+                        console.log('got error');
+                        console.log(response.status, response.statusText);
                         throw response;
                     }
                 });

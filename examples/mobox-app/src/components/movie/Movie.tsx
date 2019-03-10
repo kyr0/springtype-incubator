@@ -2,6 +2,7 @@ import {WebComponent, WebComponentLifecycle} from "../../../../../src/package/ht
 import template from "./Movie.tpl";
 import {MovieService} from "../../service/MovieService";
 import {PageDtoMovieDto} from "api/src";
+import {AccountResourcesApi} from "../../../api/src";
 
 interface PropsMovies {
     response: PageDtoMovieDto
@@ -32,10 +33,17 @@ export class Movie extends HTMLElement implements WebComponentLifecycle {
         if (this.props.response && this.props.response.page == this.props.page) {
             return;
         }
-        const response = await this.movieService.getPage(this.props.page, this.props.pageSize);
-        if (response) {
-            this.props.response = response;
+        try {
+            console.log('load page');
+            const account = await new AccountResourcesApi().getAccountUsingGET();
+            console.log('account');
+        }catch (e) {
+            console.log('error')
         }
+        // const response = await this.movieService.getPage(this.props.page, this.props.pageSize);
+        // if (response) {
+        //     this.props.response = response;
+        // }
     }
 
     mountChildren(): void {
