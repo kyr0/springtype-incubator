@@ -1,16 +1,16 @@
-
-export  interface RequestInitial extends RequestInit{
+export interface RequestInitial extends RequestInit {
     mapper: (response: Response) => any;
 }
-
-
-export const JSON = (r: Response): any => {
-    return r.json();
+export const JSON_RESPONSE: RequestInitial = {
+    mapper: (r: Response): any => {
+        return r.json();
+    }
 };
 
-
-export const PLAIN_TEXT = (r: Response): any => {
-    return r.text();
+export const PLAINT_TEXT_RESPONSE: RequestInitial = {
+    mapper: (r: Response): any => {
+        return r.text();
+    }
 };
 
 export class AbortablePromise<T> implements Promise<T> {
@@ -34,11 +34,49 @@ export class AbortablePromise<T> implements Promise<T> {
     }
 }
 
-export const send = <T>(request: RequestInfo, init: RequestInitial = {mapper: JSON}): AbortablePromise<T> => {
-    const abortController = new AbortController();
-    const promise = fetch(request, {... init, signal: abortController.signal})
-        .then(init.mapper)
-        .then(v => v as T);
-    return new AbortablePromise(abortController, promise);
-};
+
+export class HttpClient {
+
+    constructor() {
+    }
+
+    get<T>(request: RequestInfo, init: RequestInitial = JSON_RESPONSE): AbortablePromise<T> {
+        return this.send(request, {...init, method: "GET"});
+    }
+
+    post<T>(request: RequestInfo, init: RequestInitial = JSON_RESPONSE): AbortablePromise<T> {
+        return this.send(request, {...init, method: "POST"});
+    }
+
+    put<T>(request: RequestInfo, init: RequestInitial = JSON_RESPONSE): AbortablePromise<T> {
+        return this.send(request, {...init, method: "PUT"});
+    }
+
+    delete<T>(request: RequestInfo, init: RequestInitial = JSON_RESPONSE): AbortablePromise<T> {
+        return this.send(request, {...init, method: "DELETE"});
+    }
+
+    send<T>(request: RequestInfo, init: RequestInitial): AbortablePromise<T> {
+        const abortController = new AbortController();
+        const promise = fetch(request, {...init, signal: abortController.signal})
+            .then(init.mapper)
+            .then(v => v as T);
+        return new AbortablePromise(abortController, promise);
+
+    }
+}
+
+
+(() => {
+    const http: HttpClient = new HttpClient();
+
+    http.post("/test/me", {
+        ...JSON_RESPONSE,
+        body: JSON.stringify({my: "dsdfsdfs"}), // data can be `string` or {object}!
+        mode: "cors",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+})();
 
