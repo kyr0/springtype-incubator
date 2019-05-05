@@ -1,7 +1,8 @@
 import {MWCButton} from "./MWCButton";
 import classNames from "classnames";
-import {VirtualElement} from "@springtype/springtype-incubator-core";
-import {ActiveRenderer} from "@springtype/springtype-incubator-core";
+import {VirtualElement, ActiveRenderer} from "@springtype/springtype-incubator-core";
+//css
+import "@material/button/dist/mdc.button.min.css"
 
 export default (view: MWCButton) => {
 
