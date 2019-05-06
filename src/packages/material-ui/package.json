@@ -31,6 +31,7 @@
   "author": "Michael Mannseicher, Aron Homberg",
   "license": "MIT",
   "devDependencies": {
+    "@material/radio": "^2.0.0",
     "rimraf": "2.6.3",
     "sass": "^1.17.2",
     "typescript": "^3.3.4000"

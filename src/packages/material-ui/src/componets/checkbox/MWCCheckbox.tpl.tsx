@@ -19,7 +19,9 @@ export default (view: MWCCheckbox) => {
     if (view.value) {
         inputElement.attributes.value = view.value;
     }
-
+    if (view.name) {
+        inputElement.attributes.name = view.name;
+    }
     return <div class={classes}>
         {inputElement}
 

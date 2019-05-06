@@ -9,8 +9,9 @@ import {
 import template from "./MWCButton.tpl";
 import style from "./MWCButton.tss";
 import {MDCRipple} from '@material/ripple';
+import {ComponentName} from "../ComponentName";
 
-@Element('mwc-button')
+@Element(ComponentName.BUTTON)
 @Template(template)
 @Style(style)
 export class MWCButton extends HTMLElement implements Lifecycle {
@@ -60,7 +61,7 @@ export class MWCButton extends HTMLElement implements Lifecycle {
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'mwc-button': Partial<MWCButton>;
+            [ComponentName.BUTTON]: Partial<MWCButton>;
         }
     }
 }
