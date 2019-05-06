@@ -1,5 +1,6 @@
 export enum ComponentName {
     BUTTON = "mwc-button",
     CHECKBOX = "mwc-checkbox",
-    RADIO = "mwc-radio"
+    RADIO = "mwc-radio",
+    SELECT = "mwc-select"
 }
