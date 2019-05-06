@@ -1,6 +1,7 @@
 export interface RequestInitial extends RequestInit {
     mapper: (response: Response) => any;
 }
+
 export const JSON_RESPONSE: RequestInitial = {
     mapper: (r: Response): any => {
         return r.json();
@@ -66,17 +67,17 @@ export class HttpClient {
     }
 }
 
+interface Movie {
+    title: string;
+    length: number;
+}
 
-(() => {
+(async () => {
     const http: HttpClient = new HttpClient();
 
-    http.post("/test/me", {
-        ...JSON_RESPONSE,
-        body: JSON.stringify({my: "dsdfsdfs"}), // data can be `string` or {object}!
-        mode: "cors",
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    const promise = http.get<Movie[]>("/api/movies");
+    setTimeout(() => {
+        promise.abort()
+    }, 1000)
 })();
 
