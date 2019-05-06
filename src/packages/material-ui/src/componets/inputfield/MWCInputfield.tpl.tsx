@@ -22,7 +22,7 @@ const outlineLabel = (view: MWCInputField) => {
             'mdc-notched-outline__notch': true,
             'mdc-help--float-above': view['is-focused'] || view.value
         })}>
-            <label class={classNames({
+            <label inject={{labelEL: view}} class={classNames({
                 'mdc-floating-label': true,
                 'mdc-floating-label--float-above': view['is-focused'] || view.value
             })}>{view.label}</label>
@@ -33,7 +33,7 @@ const outlineLabel = (view: MWCInputField) => {
 const filledLabel = (view: MWCInputField) => {
     return <st-fragment>
         <div class="mdc-line-ripple"/>
-        <label class={classNames({
+        <label inject={{labelEL: view}} class={classNames({
             'mdc-floating-label': true,
             'mdc-floating-label--float-above': view['is-focused'] || view.value
         })}>{view.label}</label>
@@ -55,7 +55,7 @@ export default (view: MWCInputField) => {
     });
 
 
-    const inputElement: VirtualElement = <input inject={{input: view}} class="mdc-text-field__input" value={view.value}/>;
+    const inputElement: VirtualElement = <input inject={{inputEL: view}} class="mdc-text-field__input" value={view.value}/>;
     if (view.disabled) {
         inputElement.attributes.disabled = true;
     }

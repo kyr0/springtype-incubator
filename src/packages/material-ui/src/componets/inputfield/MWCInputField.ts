@@ -43,21 +43,25 @@ export class MWCInputField extends HTMLElement implements Lifecycle {
     @Attribute
     value = '';
 
+    constructor(protected inputEL: HTMLInputElement,
+                protected labelEL: HTMLLabelElement
+    ) {
+        super();
+    }
+
     onFlow(initial: boolean) {
-        const inputField = this.getElementsByTagName('input')[0];
-        const label = this.getElementsByTagName('label')[0];
 
         if (initial) {
-            inputField.addEventListener('focusin', () => {
+            this.inputEL.addEventListener('focusin', () => {
                 this['is-focused'] = true;
                 above();
             });
-            inputField.addEventListener('focusout', () => {
+            this.inputEL.addEventListener('focusout', () => {
                 this['is-focused'] = false;
                 above()
             });
-            inputField.addEventListener('change', () => {
-                this.value = inputField.value;
+            this.inputEL.addEventListener('change', () => {
+                this.value = this.inputEL.value;
             });
         }
         const above = () => {
@@ -65,8 +69,8 @@ export class MWCInputField extends HTMLElement implements Lifecycle {
                 const labelParent = this.getElementsByClassName('mdc-notched-outline__notch')[0];
                 if (labelParent) {
                     setTimeout(() => {
-                        labelParent.setAttribute('style', `width: ${label.getBoundingClientRect().width+ 8}px`);
-                        console.error("label.getBoundingClientRect().width", label.getBoundingClientRect().width)
+                        labelParent.setAttribute('style', `width: ${this.labelEL.getBoundingClientRect().width + 8}px`);
+                        console.error("label.getBoundingClientRect().width", this.labelEL.getBoundingClientRect().width)
                     }, 100)
 
                 }

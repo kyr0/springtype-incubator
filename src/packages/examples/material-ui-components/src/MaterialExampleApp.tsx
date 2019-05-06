@@ -1,12 +1,11 @@
-import {MWCButton, MWCCheckbox} from "@springtype/springtype-incubator-material-ui";
-import {setTheme, Theme, UseElement} from "@springtype/springtype-incubator-core";
+import {Theme, UseElement} from "@springtype/springtype-incubator-core";
+import {MWCButton, MWCCheckbox, MWCInputField} from "../../../material-ui";
 
-@UseElement(MWCCheckbox, MWCButton)
+@UseElement(MWCCheckbox, MWCButton, MWCInputField)
 @Theme({
     backgroundColor: 'red'
 })
 export class MaterialExampleApp {
-
 
     constructor() {
 
